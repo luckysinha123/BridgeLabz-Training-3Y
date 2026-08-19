@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown-based Selection</title>
+</head>
+<body>
+    <h1>Select Your Location and Favorite Place</h1>
+
+    <form action="#" method="GET">
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="us" selected>United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ca">Canada</option>
+        </select>
+        <br><br>
+
+        <label for="state">State/Province:</label>
+        <select id="state" name="state">
+            <option value="ny" selected>New York</option>
+            <option value="ca">California</option>
+            <option value="tx">Texas</option>
+        </select>
+        <br><br>
+
+        <label for="city">City:</label>
+        <select id="city" name="city">
+            <option value="nyc" selected>New York City</option>
+            <option value="sf">San Francisco</option>
+            <option value="austin">Austin</option>
+        </select>
+        <br><br>
+
+        <label for="place">Favorite Tourist Place:</label>
+        <select id="place" name="place">
+            <option value="statue_of_liberty" selected>Statue of Liberty</option>
+            <option value="golden_gate">Golden Gate Bridge</option>
+            <option value="almo">The Alamo</option>
+        </select>
+        <br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Paragraph summarizing choices -->
+    <p>You have selected: United States, New York, New York City, and the Statue of Liberty.</p>
+</body>
+</html>
