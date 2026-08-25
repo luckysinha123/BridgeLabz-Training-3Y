@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 17 - Form with Iframe Target</title>
+</head>
+<body>
+    <!-- Form that submits into the iframe below -->
+    <form action="result.html" target="resultFrame">
+        <label for="inputText">Enter something:</label>
+        <input type="text" id="inputText" name="inputText">
+        <input type="submit" value="Submit">
+    </form>
+    
+    <br><br>
+    
+    <!-- Iframe used as target for form submission -->
+    <iframe name="resultFrame" width="400" height="200" title="Form Result"></iframe>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 19 - Form Security</title>
+</head>
+<body>
+    <!-- Form with autocomplete turned off -->
+    <h2>Secure Login</h2>
+    <form autocomplete="off" action="#">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login">
+    </form>
+    
+    <!-- Explanation of autocomplete attribute -->
+    <p>Turning off autocomplete can improve security by preventing the browser from saving and suggesting sensitive information, such as usernames and passwords, on shared or public computers.</p>
+</body>
+</html>

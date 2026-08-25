@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 7 - Login Form</title>
+</head>
+<body>
+    <!-- Login Form -->
+    <h2>Login</h2>
+    <form action="#">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <!-- A CSRF (Cross-Site Request Forgery) token is used to ensure that a form submission originates from the actual application and not a malicious third-party site. -->
+        <input type="hidden" name="csrf_token" value="dummy_token_12345">
+        
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
