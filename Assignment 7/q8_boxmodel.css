@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   Requirement: Center demonstration using Flexbox
+   ========================================================= */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex; /* Flexbox container */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    padding: 2.5rem 1.5rem;
+}
+
+.boxmodel-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bm-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.bm-header h1 {
+    font-size: 2.25rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.bm-header p {
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+section {
+    width: 100%;
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.3rem;
+    color: #38bdf8;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #1f2937;
+    padding-bottom: 0.75rem;
+}
+
+/* =========================================================
+   1. VISUAL BOX MODEL LAYERS (Margin -> Border -> Padding -> Content)
+   Differentiated with distinct background colors, outlines & titles
+   ========================================================= */
+
+.layer-margin {
+    background-color: rgba(245, 158, 11, 0.15); /* Orange for Margin */
+    outline: 2px dashed #f59e0b; /* Outline to highlight boundary */
+    padding: 2rem;
+    border-radius: 16px;
+    position: relative;
+}
+
+.layer-border {
+    background-color: rgba(236, 72, 153, 0.2); /* Pink for Border Layer */
+    border: 8px double #ec4899; /* Double border stroke */
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.layer-padding {
+    background-color: rgba(16, 185, 129, 0.2); /* Green for Padding Layer */
+    outline: 2px stroke #10b981;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.layer-content {
+    background-color: #3b82f6; /* Blue for Content Layer */
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.layer-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.title-margin { color: #fbbf24; }
+.title-border { color: #f472b6; }
+.title-padding { color: #34d399; }
+.title-content { color: #ffffff; }
+
+/* =========================================================
+   2. BOX-SIZING COMPARISON (content-box vs border-box)
+   ========================================================= */
+
+.section-desc {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.comparison-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box-demo {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 20px; /* Internal padding */
+    border: 10px solid #6366f1; /* Thick border */
+    width: 280px; /* Declared width */
+}
+
+/* Default content-box rule */
+.content-box-demo {
+    box-sizing: content-box; /* Width excludes padding and border */
+    background-color: #1e1b4b;
+    border-color: #a855f7;
+}
+
+/* Border-box rule */
+.border-box-demo {
+    box-sizing: border-box; /* Width includes padding and border */
+    background-color: #064e3b;
+    border-color: #10b981;
+}
+
+.box-demo h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.box-demo p {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+code {
+    background: rgba(0, 0, 0, 0.4);
+    color: #38bdf8;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}

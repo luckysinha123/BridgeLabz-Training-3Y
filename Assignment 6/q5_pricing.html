@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5 - Flexbox Pricing Section</title>
+    <link rel="stylesheet" href="q5_pricing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pricing-container">
+        <header class="pricing-header">
+            <span class="badge">Simple & Transparent</span>
+            <h1>Flexible Plans for Teams of All Sizes</h1>
+            <p>Choose the perfect plan tailored for your software development requirements.</p>
+        </header>
+
+        <!-- Three pricing cards aligned horizontally using Flexbox -->
+        <main class="pricing-cards">
+            <!-- Card 1: Starter -->
+            <div class="price-card">
+                <div class="card-plan">Starter</div>
+                <div class="price">$19 <span>/mo</span></div>
+                <p class="plan-desc">Essential tools for individual developers and small projects.</p>
+                <ul class="features">
+                    <li>✓ 5 Projects Included</li>
+                    <li>✓ 10GB Cloud Storage</li>
+                    <li>✓ Standard Support</li>
+                    <li>✓ Basic Analytics</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Choose Starter</a>
+            </div>
+
+            <!-- Card 2: Pro (Middle card - larger & highlighted) -->
+            <div class="price-card card-featured">
+                <div class="popular-tag">Most Popular</div>
+                <div class="card-plan">Pro Business</div>
+                <div class="price">$49 <span>/mo</span></div>
+                <p class="plan-desc">Advanced infrastructure & performance tools for growing tech teams.</p>
+                <ul class="features">
+                    <li>✓ Unlimited Projects</li>
+                    <li>✓ 100GB High-Speed Storage</li>
+                    <li>✓ Priority 24/7 Support</li>
+                    <li>✓ Advanced Team Analytics</li>
+                    <li>✓ Custom Domain Integrations</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Get Pro Access</a>
+            </div>
+
+            <!-- Card 3: Enterprise -->
+            <div class="price-card">
+                <div class="card-plan">Enterprise</div>
+                <div class="price">$99 <span>/mo</span></div>
+                <p class="plan-desc">Full custom capacity, SLA guarantees, and dedicated engineers.</p>
+                <ul class="features">
+                    <li>✓ Unlimited Everything</li>
+                    <li>✓ 1TB Dedicated Storage</li>
+                    <li>✓ Dedicated Account Manager</li>
+                    <li>✓ Custom API Solutions</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

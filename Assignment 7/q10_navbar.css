@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+/* =========================================================
+   Horizontal Navigation Bar Header
+   ========================================================= */
+.site-header {
+    background-color: #111827;
+    border-bottom: 1px solid #1f2937;
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-brand {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+}
+
+/* =========================================================
+   Requirement: Horizontal navigation bar with five links
+   ========================================================= */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #9ca3af;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.65rem 1.25rem; /* Padding for click target size */
+    border-radius: 10px;
+    border: 1px solid transparent; /* Border placeholder */
+    position: relative;
+    /* Requirement: transition: all 0.3s ease; for smooth hover effects */
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect: Changes background, border, and text color */
+.nav-link:hover {
+    color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   Requirement: Highlight the active link with a distinct background
+   ========================================================= */
+.nav-link.active {
+    color: #ffffff;
+    background-color: #6366f1; /* Distinct highlight background color */
+    border-color: #818cf8;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+.nav-link.active:hover {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 24px;
+    padding: 3.5rem 3rem;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.hero-card p {
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+code {
+    background: rgba(0, 0, 0, 0.4);
+    color: #38bdf8;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #6366f1;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 1px solid #374151;
+    color: #f3f4f6;
+}
+
+.btn-secondary:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   Requirement: Include a footer section with simple centered text
+   ========================================================= */
+.site-footer {
+    width: 100%;
+    background-color: #111827;
+    border-top: 1px solid #1f2937;
+    padding: 1.5rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   Requirement: Make navbar responsive—stack vertically below 700px
+   ========================================================= */
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .nav-bar {
+        flex-direction: column; /* Vertically stack navbar links */
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cta-group {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.form-wrapper {
+    max-width: 540px;
+    width: 100%;
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.form-header h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: #9ca3af;
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   Requirement: Ensure uniform spacing between form elements
+   ========================================================= */
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem; /* Uniform vertical spacing between inputs */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+/* Base Input and Textarea Styling (Padding, Border-radius, Subtle Shadow) */
+input, textarea {
+    font-family: inherit;
+    background-color: #1e293b;
+    color: #ffffff;
+    border: 1px solid #334155;
+    border-radius: 12px; /* Neat rounded corners */
+    padding: 0.85rem 1.25rem; /* Internal padding */
+    font-size: 0.95rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle inner shadow */
+    transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #64748b;
+}
+
+/* =========================================================
+   Requirement: Demonstrate various outline styles, outline-offset,
+   and change outline color on focus using :focus selector
+   ========================================================= */
+
+/* Input 1: Solid Outline with 4px Offset on Focus */
+.input-solid:focus {
+    outline-style: solid; /* Solid outline style */
+    outline-width: 3px;
+    outline-color: #ec4899; /* Vibrant pink outline color */
+    outline-offset: 4px; /* Requirement: outline-offset pushes ring outside element */
+    border-color: #ec4899;
+}
+
+/* Input 2: Dashed Outline with 3px Offset on Focus */
+.input-dashed:focus {
+    outline-style: dashed; /* Dashed outline style */
+    outline-width: 3px;
+    outline-color: #38bdf8; /* Sky blue outline color */
+    outline-offset: 3px; /* 3px offset gap */
+    border-color: #38bdf8;
+}
+
+/* Textarea 3: Double Outline with 5px Offset on Focus */
+.textarea-double:focus {
+    outline-style: double; /* Double outline style */
+    outline-width: 5px;
+    outline-color: #10b981; /* Emerald green outline color */
+    outline-offset: 5px; /* 5px offset gap */
+    border-color: #10b981;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.95rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    background: #4f46e5;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.submit-btn:focus {
+    outline: 3px solid #818cf8;
+    outline-offset: 3px;
+}

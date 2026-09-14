@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3 - Gradient Background Webpage</title>
+    <link rel="stylesheet" href="q3_gradients.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Requirement: Fixed Header for complete layout -->
+    <header class="fixed-header">
+        <div class="header-logo">Gradient Canvas</div>
+        <nav class="header-nav">
+            <a href="#linear">Linear Section</a>
+            <a href="#radial">Radial Section</a>
+        </nav>
+    </header>
+
+    <main class="gradient-wrapper">
+        <!-- Section 1: Linear Gradient Background -->
+        <section id="linear" class="section-linear">
+            <div class="glass-card">
+                <span class="badge">Linear Gradient</span>
+                <h1>135deg Multi-Stop Linear Color Transition</h1>
+                <p>Linear gradients transition smoothly along a straight vector. This section uses a <code>linear-gradient(135deg, #4f46e5 0%, #ec4899 50%, #f59e0b 100%)</code> background direction.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Radial Gradient Background with Parallax Attachment Fixed -->
+        <section id="radial" class="section-radial">
+            <div class="glass-card">
+                <span class="badge yellow">Radial Gradient + Fixed Parallax</span>
+                <h1>Centered Radial Glow with Fixed Attachment</h1>
+                <p>Radial gradients radiate outward from an origin point (circle or ellipse). This section features a <code>radial-gradient(circle at center, #0284c7, #0f172a 80%)</code> combined with <code>background-attachment: fixed;</code> to generate a parallax scrolling effect as you move down the page.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Requirement: Fixed Footer for complete layout -->
+    <footer class="fixed-footer">
+        <p>&copy; 2026 CSS Gradient Showcase. Fixed Header & Footer Layout.</p>
+    </footer>
+</body>
+</html>

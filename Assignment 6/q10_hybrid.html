@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q10 - Hybrid Flexbox & Grid Webpage</title>
+    <link rel="stylesheet" href="q10_hybrid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Requirement: Header with logo and nav links using Flexbox -->
+    <header class="hybrid-header">
+        <div class="logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#6366f1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>Apex Systems</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Solutions</a>
+            <a href="#">Case Studies</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Requirement: Main area divided into a 2-column Grid (Article + Sidebar) -->
+    <main class="hybrid-main-grid">
+        <!-- Column 1: Main Article -->
+        <article class="article-section">
+            <!-- Requirement: Use @keyframes to animate one element (e.g. title moves up/fades in) -->
+            <h1 class="animated-title">Next-Gen Cloud Native Platform</h1>
+            <p class="intro-paragraph">Our architecture combines ultra-low latency serverless infrastructure with real-time edge processing for enterprise grade deployments.</p>
+
+            <!-- Requirement: Inside the main article, include three boxes aligned using Flexbox -->
+            <div class="inner-flex-boxes">
+                <div class="flex-box">
+                    <div class="box-icon">🚀</div>
+                    <h3>High Speed</h3>
+                    <p>Sub-millisecond API responses backed by global edge nodes.</p>
+                </div>
+                <div class="flex-box">
+                    <div class="box-icon">🔒</div>
+                    <h3>Zero Trust</h3>
+                    <p>End-to-end encrypted tunnels and automated compliance auditing.</p>
+                </div>
+                <div class="flex-box">
+                    <div class="box-icon">📈</div>
+                    <h3>Auto Scalability</h3>
+                    <p>Elastic container scaling to handle millions of simultaneous events.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Column 2: Sidebar -->
+        <aside class="sidebar-section">
+            <div class="sidebar-widget">
+                <h3>Latest Updates</h3>
+                <ul class="update-list">
+                    <li><strong>v4.2 Released:</strong> Enhanced GraphQL gateway support.</li>
+                    <li><strong>Security Audit:</strong> Passed SOC2 Type II compliance check.</li>
+                    <li><strong>Webinar:</strong> Scaling microservices with Kubernetes.</li>
+                </ul>
+            </div>
+            <div class="sidebar-widget promo">
+                <h3>Need Assistance?</h3>
+                <p>Speak directly with our system architects 24/7.</p>
+                <button class="btn">Schedule Call</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Requirement: Footer spans the full width with centered text -->
+    <footer class="hybrid-footer">
+        <p>&copy; 2026 Apex Systems Inc. All rights reserved. Hybrid Flexbox & Grid Architecture.</p>
+    </footer>
+</body>
+</html>

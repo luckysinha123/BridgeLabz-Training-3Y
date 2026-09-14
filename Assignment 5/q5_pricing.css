@@ -1,0 +1,240 @@
+/* ==========================================================================
+   Question 5: Pricing Table Layout CSS
+   Demonstrates: Equal 3-column Grid/Flex layout, CSS transitions, hover scale &
+   background change, highlighted popular plan border/color, equal height cards,
+   and styled button links.
+   ========================================================================== */
+
+/* --- Reset & Global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #0b0f19;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.pricing-header {
+  text-align: center;
+  padding: 3.5rem 1rem 2rem;
+}
+
+.pricing-header h1 {
+  font-size: 2.75rem;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-header p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+/* Container */
+.pricing-container {
+  width: 92%;
+  max-width: 1150px;
+  margin: 0 auto;
+  flex: 1;
+  padding-bottom: 4rem;
+}
+
+/* --- 3 Equal Columns Flexbox/Grid Layout --- */
+/* Requirement: Use flexbox or grid to create three equal columns */
+.pricing-grid {
+  display: flex;                /* Flexbox implementation for equal heights */
+  justify-content: center;
+  align-items: stretch;         /* REQUIREMENT: All boxes maintain equal height */
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* --- Base Plan Card Styling --- */
+.plan-card {
+  flex: 1;                       /* Equal width flex columns */
+  min-width: 280px;
+  background-color: #1e293b;     /* Base dark background color */
+  border: 1px solid #334155;     /* Standard subtle border */
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  
+  /* Flexbox setup inside card to pin button at bottom */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  /* Requirement: Use CSS transitions for smooth hover animations */
+  transition: transform 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* --- Hover Effect Requirement --- */
+/* Requirement: Add hover effect that slightly enlarges box and changes background color */
+.plan-card:hover {
+  transform: scale(1.05);        /* Slightly enlarges box on hover */
+  background-color: #273549;     /* Changes background color on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+/* --- Highlighted Most Popular Plan --- */
+/* Requirement: Use different border styles or colors to highlight the most popular plan */
+.plan-popular {
+  background-color: #1f2347;     /* Distinct highlighted background color */
+  border: 2px solid #6366f1;     /* Distinct bold purple border color */
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
+}
+
+.plan-popular:hover {
+  background-color: #2b305c;     /* Distinct hover background color for popular plan */
+  border-color: #818cf8;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+}
+
+/* Card Content Elements */
+.plan-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.price-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+  vertical-align: top;
+}
+
+.amount {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* Feature List */
+.features-list {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex: 1;                       /* Takes available vertical space to align buttons */
+}
+
+.features-list li {
+  padding: 0.6rem 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.features-list li::before {
+  content: "✓";
+  color: #22c55e;
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.features-list li.disabled {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.features-list li.disabled::before {
+  content: "✕";
+  color: #64748b;
+}
+
+/* Button Wrapper & Styled Link Button */
+/* Requirement: Button is a styled link using <a> */
+.button-wrapper {
+  margin-top: auto;              /* Pushes button to bottom of equal-height card */
+}
+
+.plan-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #38bdf8;
+  border: 2px solid #38bdf8;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.plan-button:hover {
+  background-color: #38bdf8;
+  color: #0b0f19;
+}
+
+.btn-popular {
+  background-color: #6366f1;
+  color: #ffffff;
+  border: 2px solid #6366f1;
+}
+
+.btn-popular:hover {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+/* Footer */
+.pricing-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #020617;
+  color: #64748b;
+  font-size: 0.875rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .plan-card {
+    width: 100%;
+    max-width: 450px;
+  }
+}

@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.shadow-demo-container {
+    max-width: 1150px;
+    width: 100%;
+}
+
+.shadow-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+/* =========================================================
+   Requirement: Add text-shadow to headings for depth
+   ========================================================= */
+.depth-heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    /* Multilayer text-shadow rule creating 3D depth and luminous backlight */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(99, 102, 241, 0.6);
+}
+
+.shadow-header p {
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   Requirement: Arrange the cards in a single row using Flexbox
+   ========================================================= */
+.cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.shadow-card {
+    flex: 1;
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 20px;
+    padding: 2.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Requirement: CSS transitions for smooth hover elevation animation */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Card 1: Soft Ambient Shadow Style */
+.card-ambient {
+    /* Broad low-contrast blur shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Card 2: Multi-Layered Deep Shadow Style */
+.card-layered {
+    /* Combining sharp key shadow + soft ambient drop shadow */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 20px 40px -5px rgba(0, 0, 0, 0.6);
+}
+
+/* Card 3: Neon Glowing Shadow Style */
+.card-glow {
+    /* Luminous indigo outer glow shadow */
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* =========================================================
+   Requirement: On hover, each card lifts up using a larger shadow
+   ========================================================= */
+.card-ambient:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    border-color: #38bdf8;
+}
+
+.card-layered:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 30px 60px -10px rgba(0, 0, 0, 0.8);
+    border-color: #ec4899;
+}
+
+.card-glow:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 45px rgba(99, 102, 241, 0.65), 0 15px 35px rgba(0, 0, 0, 0.6);
+    border-color: #6366f1;
+}
+
+.card-avatar {
+    width: 52px;
+    height: 52px;
+    background: #1f2937;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.shadow-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.shadow-card p {
+    color: #9ca3af;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.shadow-code {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid #1f2937;
+}
+
+code {
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: #38bdf8;
+}
+
+/* Responsive single column rule */
+@media (max-width: 800px) {
+    .cards-row {
+        flex-direction: column;
+    }
+}

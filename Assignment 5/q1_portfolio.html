@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 1 - Personal Portfolio Homepage</title>
+  <link rel="stylesheet" href="q1_portfolio.css">
+</head>
+<body>
+
+  <!-- Header with Fixed Positioning -->
+  <header class="navbar">
+    <div class="logo">Lucky Sinha</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    
+    <!-- Hero / Bio Section -->
+    <section id="home" class="bio-section">
+      <div class="bio-card">
+        <!-- Profile Image with Inline SVG Avatar -->
+        <div class="profile-container">
+          <svg class="profile-img" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="58" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+            <circle cx="60" cy="45" r="22" fill="#38bdf8"/>
+            <path d="M 25 100 C 25 75, 95 75, 95 100 Z" fill="#38bdf8"/>
+          </svg>
+        </div>
+
+        <div class="bio-text">
+          <span class="badge">Full Stack Developer</span>
+          <h1>Hi, I'm <span class="highlight">Lucky Sinha</span></h1>
+          <p id="about">
+            I am a passionate 3rd-year Computer Science & Engineering student specializing in full-stack web application development. 
+            I build modern, responsive, high-performance web applications with clean code standards, semantic HTML5 structure, and sleek CSS layouts. 
+            Welcome to my personal portfolio homepage!
+          </p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Content to Enable Scrolling for Fixed Header Demo -->
+    <section id="contact" class="details-section">
+      <h2>Contact & Connect</h2>
+      <div class="contact-box">
+        <p>Email: <strong>lucky.sinha@example.com</strong></p>
+        <p>GitHub: <strong>github.com/luckysinha123</strong></p>
+        <p>Location: <strong>India</strong></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Always Pinned at Bottom via Flexbox Container Layout -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Lucky Sinha. All Rights Reserved. | Assignment 5 - Question 1</p>
+  </footer>
+
+</body>
+</html>

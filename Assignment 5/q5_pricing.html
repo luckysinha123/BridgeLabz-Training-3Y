@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 5 - Pricing Table Layout</title>
+  <link rel="stylesheet" href="q5_pricing.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="pricing-header">
+    <h1>Flexible Pricing Plans</h1>
+    <p>Choose the perfect plan tailored to your development needs.</p>
+  </header>
+
+  <!-- Main Pricing Table Container -->
+  <main class="pricing-container">
+    
+    <!-- 3 Equal Columns Flexbox / Grid Container -->
+    <div class="pricing-grid">
+
+      <!-- Plan 1: Basic Plan -->
+      <div class="plan-card plan-basic">
+        <h2 class="plan-title">Basic</h2>
+        <div class="price-section">
+          <span class="currency">$</span>
+          <span class="amount">19</span>
+          <span class="period">/month</span>
+        </div>
+        <ul class="features-list">
+          <li>5 Projects Included</li>
+          <li>10GB Storage Space</li>
+          <li>Community Support</li>
+          <li>Basic Analytics Dashboard</li>
+          <li class="disabled">Custom Domain Name</li>
+        </ul>
+        <div class="button-wrapper">
+          <a href="#choose-basic" class="plan-button">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Plan 2: Standard Plan (Highlighted / Most Popular) -->
+      <div class="plan-card plan-popular">
+        <div class="popular-badge">Most Popular</div>
+        <h2 class="plan-title">Standard</h2>
+        <div class="price-section">
+          <span class="currency">$</span>
+          <span class="amount">49</span>
+          <span class="period">/month</span>
+        </div>
+        <ul class="features-list">
+          <li>25 Projects Included</li>
+          <li>100GB Cloud Storage</li>
+          <li>24/7 Priority Support</li>
+          <li>Advanced Real-Time Analytics</li>
+          <li>Custom Domain Name</li>
+          <li>Team Collaboration Tools</li>
+        </ul>
+        <div class="button-wrapper">
+          <a href="#choose-standard" class="plan-button btn-popular">Upgrade Now</a>
+        </div>
+      </div>
+
+      <!-- Plan 3: Premium Plan -->
+      <div class="plan-card plan-premium">
+        <h2 class="plan-title">Premium</h2>
+        <div class="price-section">
+          <span class="currency">$</span>
+          <span class="amount">99</span>
+          <span class="period">/month</span>
+        </div>
+        <ul class="features-list">
+          <li>Unlimited Projects</li>
+          <li>1TB NVMe Storage</li>
+          <li>Dedicated Account Manager</li>
+          <li>Custom AI Analytics Engine</li>
+          <li>Unlimited Custom Domains</li>
+          <li>SLA Guarantee 99.99%</li>
+        </ul>
+        <div class="button-wrapper">
+          <a href="#choose-premium" class="plan-button">Go Enterprise</a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="pricing-footer">
+    <p>&copy; 2026 SaaS Pricing Hub | Assignment 5 - Question 5</p>
+  </footer>
+
+</body>
+</html>

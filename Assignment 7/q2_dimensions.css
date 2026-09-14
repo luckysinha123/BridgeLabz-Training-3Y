@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   Flexbox Alignment Rule: Centers all boxes vertically and horizontally in full viewport
+   ========================================================= */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh; /* Using 100vh viewport height unit for full body scale */
+    display: flex; /* Flexbox container */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    padding: 2rem 1.5rem;
+}
+
+.centered-viewport {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dim-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.dim-header h1 {
+    font-size: 2.25rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.dim-header p {
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+/* Flexbox container for dimension boxes */
+.dimension-boxes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertical alignment of items within container */
+    gap: 1.75rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.dim-box {
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.dim-box:hover {
+    transform: translateY(-5px);
+}
+
+.dim-box h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+
+.code-info {
+    margin-bottom: 1rem;
+}
+
+code {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   Box 1: Distinct Background Color, Pixel (px) Width, EM Height & Overflow Auto
+   ========================================================= */
+.box-1 {
+    background-color: #1e1b4b; /* Distinct dark indigo background */
+    border: 2px solid #6366f1;
+    width: 320px; /* Fixed pixel width unit */
+    height: 18em; /* Relative em height unit based on font-size */
+    overflow: auto; /* Requirement: overflow scrollbar when text exceeds height */
+}
+
+.scrollable-content {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Custom scrollbar styling for overflow auto demo */
+.box-1::-webkit-scrollbar {
+    width: 6px;
+}
+.box-1::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 4px;
+}
+
+/* =========================================================
+   Box 2: Distinct Background Color, Viewport Height (vh), Percentage (%) & Max-Width & Min-Height
+   ========================================================= */
+.box-2 {
+    background-color: #064e3b; /* Distinct emerald background */
+    border: 2px solid #10b981;
+    width: 80%; /* Percentage width relative to parent */
+    max-width: 360px; /* Requirement: max-width constraint safeguard */
+    height: 35vh; /* Requirement: 35% of viewport height unit */
+    min-height: 220px; /* Requirement: min-height lower bound */
+    overflow: hidden;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #d1fae5;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   Box 3: Distinct Background Color, Percentage (%), Min-Height & Overflow Hidden
+   ========================================================= */
+.box-3 {
+    background-color: #701a75; /* Distinct fuchsia background */
+    border: 2px solid #c026d3;
+    width: 280px;
+    min-height: 250px; /* Requirement: min-height property */
+    overflow: hidden; /* Requirement: clips any overflowing graphic element */
+    position: relative;
+}
+
+.overflow-graphic {
+    position: absolute;
+    bottom: -20px;
+    right: -30px;
+    background: #f0abfc;
+    color: #701a75;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 2rem 1.5rem;
+    transform: rotate(-15deg);
+    border-radius: 12px;
+}
+
+/* Responsive collapse rule */
+@media (max-width: 850px) {
+    .dimension-boxes-container {
+        flex-direction: column;
+    }
+    .box-1, .box-2, .box-3 {
+        width: 100%;
+        max-width: 100%;
+    }
+}

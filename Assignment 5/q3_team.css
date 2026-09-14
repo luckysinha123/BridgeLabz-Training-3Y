@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Question 3: 3-Column Team Members Layout
+   Demonstrates: Flexbox/Grid row alignment, Box Model (padding/margins),
+   borders, rounded corners, shadow effects, highlighted featured card,
+   and responsive single-column layout under 600px width.
+   ========================================================================== */
+
+/* --- Reset & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex: 1;
+  padding: 2rem 0 4rem;
+}
+
+/* --- Flexbox/Grid 3-Column Layout --- */
+/* Requirement: display: flex or display: grid to align cards in one row */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal width columns */
+  gap: 2rem;                             /* Uniform spacing between cards */
+  align-items: stretch;                  /* Keeps cards equal height */
+}
+
+/* --- Card Base Styling (Box Model) --- */
+.card {
+  background-color: #1e293b;            /* Dark card background */
+  border-radius: 16px;                  /* Rounded corners */
+  border: 1px solid #334155;             /* Subtle standard border */
+  padding: 2rem;                        /* Box model uniform padding */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Shadow effect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);           /* Subtle lift effect on hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-container {
+  margin-bottom: 1.2rem;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.member-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.3rem;
+}
+
+.member-role {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.member-desc {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-top: auto; /* Pushes description neatly inside container */
+}
+
+/* --- Highlighted Featured Card (Team Lead) --- */
+/* Requirement: Highlight one card with a different background color and border style */
+.card-featured {
+  background: linear-gradient(145deg, #2a1b12 0%, #1e293b 100%); /* Distinct background color */
+  border: 2px dashed #f97316;                                    /* Dashed accent border style */
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.25);               /* Glowing shadow */
+}
+
+.card-featured .member-role {
+  color: #f97316; /* Highlighted orange role text */
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  background-color: #f97316;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #020617;
+  color: #64748b;
+  font-size: 0.875rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* --- Responsive Layout Requirement --- */
+/* Requirement: Automatically adjust to single column when viewed on screen smaller than 600px */
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr; /* Switch from 3 columns to 1 single column */
+    gap: 1.5rem;
+  }
+}

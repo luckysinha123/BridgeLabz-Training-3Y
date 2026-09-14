@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Question 1: Personal Portfolio Homepage CSS
+   Demonstrates: Fixed header, flexbox footer pinning, contrast colors, 
+   and usage of px, em, %, vh, and rem CSS units.
+   ========================================================================== */
+
+/* --- CSS Reset & Global Styling --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Includes padding & border in element total width/height */
+}
+
+/* 
+   Unit Usage: rem for root font size scaling, % for full width, 
+   vh for viewport height container setting 
+*/
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px; /* 1rem = 16px base */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* High contrast color palette: Dark Slate background with light text */
+  background-color: #0f172a; /* Slate 900 background */
+  color: #f8fafc;            /* Slate 50 text color */
+  
+  /* Flexbox configuration to force footer to stay at bottom */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Unit: vh (Viewport Height) */
+}
+
+/* --- Fixed Navigation Header --- */
+/* Requirement: Header uses position: fixed to stay at top when scrolling */
+.navbar {
+  position: fixed; /* Pinned relative to viewport */
+  top: 0;
+  left: 0;
+  width: 100%;      /* Unit: % */
+  height: 70px;     /* Unit: px */
+  background-color: rgba(15, 23, 42, 0.95); /* Semi-transparent navy */
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid #1e293b; /* Unit: px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;  /* Unit: rem */
+  z-index: 1000;    /* Keep header on top of other content */
+}
+
+.logo {
+  font-size: 1.5rem; /* Unit: rem */
+  font-weight: 700;
+  color: #38bdf8;   /* Bright Sky Blue accent */
+  letter-spacing: 0.05em; /* Unit: em */
+}
+
+.nav-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  margin-left: 1.5rem; /* Unit: rem */
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #38bdf8; /* Accent highlight on hover */
+}
+
+/* --- Main Content Section --- */
+.main-content {
+  flex: 1; /* Pushes the footer down by occupying available space */
+  padding-top: 90px; /* Offset for fixed header height (70px + 20px space) */
+  width: 90%; /* Unit: % */
+  max-width: 1000px;
+  margin: 0 auto; /* Center main container */
+}
+
+/* Hero / Bio Card Layout */
+.bio-section {
+  padding: 3rem 0; /* Unit: rem */
+}
+
+.bio-card {
+  background-color: #1e293b; /* Slate 800 for card contrast */
+  border-radius: 12px;       /* Unit: px */
+  padding: 2.5rem;           /* Unit: rem */
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Unit: px */
+  display: flex;
+  align-items: center;
+  gap: 2rem;                 /* Unit: rem */
+  flex-wrap: wrap;           /* Wraps gracefully on mobile */
+}
+
+.profile-container {
+  flex: 0 0 120px; /* Fixed profile image container width using px */
+}
+
+.profile-img {
+  width: 120px;  /* Unit: px */
+  height: 120px; /* Unit: px */
+  filter: drop-shadow(0 4px 8px rgba(56, 189, 248, 0.3));
+}
+
+.bio-text {
+  flex: 1;
+  min-width: 280px; /* Unit: px */
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  padding: 0.3em 0.8em; /* Unit: em relative to font-size */
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.bio-text h1 {
+  font-size: 2.25rem; /* Unit: rem */
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
+.highlight {
+  color: #38bdf8;
+}
+
+.bio-text p {
+  font-size: 1.05rem; /* Unit: rem */
+  line-height: 1.7;   /* Unitless line height ratio */
+  color: #cbd5e1;     /* Contrast text color */
+  margin-bottom: 1.5rem;
+}
+
+/* Call To Action Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 1rem; /* Unit: rem */
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem; /* Unit: rem */
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+
+.btn-primary:hover {
+  background-color: #7dd3fc;
+  transform: translateY(-2px); /* Smooth slight lift effect */
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.btn-secondary:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Details / Contact Section */
+.details-section {
+  padding: 3rem 0 4rem;
+}
+
+.details-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #38bdf8;
+}
+
+.contact-box {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #38bdf8; /* Accent side line */
+}
+
+.contact-box p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+/* --- Footer pinned at bottom using Flexbox margin-top: auto --- */
+/* Requirement: Footer stays at bottom of page */
+.site-footer {
+  margin-top: auto; /* Flex property pushing footer to bottom of flex container */
+  background-color: #020617; /* Deep contrast dark footer background */
+  color: #64748b;
+  text-align: center;
+  padding: 1.25rem 1rem; /* Unit: rem */
+  font-size: 0.875rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  
+  .bio-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+}

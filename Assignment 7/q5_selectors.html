@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5 - Advanced CSS Selectors Showcase</title>
+    <link rel="stylesheet" href="q5_selectors.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="selectors-container">
+        <header class="selectors-header">
+            <h1>Advanced CSS Selectors Explorer</h1>
+            <p>Attribute Selectors, Pseudo-Classes, Pseudo-Elements & Combinators</p>
+        </header>
+
+        <main class="selectors-main">
+            <!-- Section 1: Attribute Selectors & Form Elements -->
+            <section class="demo-section">
+                <h2>1. Attribute Selectors & Focus Pseudo-Class</h2>
+                <form class="selector-form">
+                    <label>Text Field: <input type="text" placeholder="Attribute [type='text'] targeted"></label>
+                    <label>Password Field: <input type="password" placeholder="Attribute [type='password']"></label>
+                </form>
+
+                <div class="links-list">
+                    <a href="https://github.com" target="_blank">Secure Link ([href^="https"])</a>
+                    <a href="http://example.com">Standard Link (http)</a>
+                </div>
+            </section>
+
+            <!-- Section 2: :nth-child Pseudo-Classes & Pseudo-Elements -->
+            <section class="demo-section">
+                <h2>2. :nth-child() & ::before / ::after Pseudo-Elements</h2>
+                <ul class="styled-list">
+                    <li>Item 1 - Odd Row (:nth-child(odd))</li>
+                    <li>Item 2 - Even Row (:nth-child(even))</li>
+                    <li>Item 3 - Odd Row (:nth-child(odd))</li>
+                    <li>Item 4 - Even Row (:nth-child(even))</li>
+                    <li>Item 5 - Odd Row (:nth-child(odd))</li>
+                </ul>
+            </section>
+
+            <!-- Section 3: CSS Combinators (Direct Child, Sibling, Descendant) -->
+            <section class="demo-section combinator-parent">
+                <h2>3. CSS Combinators ( Direct Child & Sibling )</h2>
+                <div class="parent-box">
+                    <p class="direct-p">Direct Child Paragraph (parent-box &gt; p.direct-p)</p>
+                    <div>
+                        <p class="nested-p">Nested Descendant Paragraph (parent-box p)</p>
+                    </div>
+                </div>
+
+                <div class="sibling-group">
+                    <h3 class="trigger-heading">Target Trigger Heading</h3>
+                    <p class="adjacent-p">Adjacent Sibling Paragraph (h3 + p)</p>
+                    <p class="general-p">General Sibling Paragraph 1 (h3 ~ p)</p>
+                    <p class="general-p">General Sibling Paragraph 2 (h3 ~ p)</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

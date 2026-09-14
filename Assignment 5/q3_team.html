@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 3 - Team Members Layout</title>
+  <link rel="stylesheet" href="q3_team.css">
+</head>
+<body>
+
+  <!-- Page Header -->
+  <header class="header">
+    <h1>Our Engineering Team</h1>
+    <p>Meet the talented developers crafting modern web experiences.</p>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- 3-Column Flex/Grid Container -->
+    <div class="team-grid">
+
+      <!-- Card 1: Team Member -->
+      <div class="card">
+        <div class="avatar-container">
+          <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#334155"/>
+            <circle cx="50" cy="38" r="18" fill="#38bdf8"/>
+            <path d="M 20 85 C 20 62, 80 62, 80 85 Z" fill="#38bdf8"/>
+          </svg>
+        </div>
+        <h2 class="member-name">Alex Rivera</h2>
+        <span class="member-role">Frontend Engineer</span>
+        <p class="member-desc">
+          Specializes in crafting responsive UI components, sleek CSS layouts, and modern design systems.
+        </p>
+      </div>
+
+      <!-- Card 2: Team Lead (Highlighted Card) -->
+      <div class="card card-featured">
+        <span class="featured-badge">Team Lead</span>
+        <div class="avatar-container">
+          <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#431407" stroke="#f97316" stroke-width="2"/>
+            <circle cx="50" cy="38" r="18" fill="#f97316"/>
+            <path d="M 20 85 C 20 62, 80 62, 80 85 Z" fill="#f97316"/>
+          </svg>
+        </div>
+        <h2 class="member-name">Sophia Chen</h2>
+        <span class="member-role">Lead Architect & Manager</span>
+        <p class="member-desc">
+          Drives overall product architecture, leads technical decisions, and mentors cross-functional dev teams.
+        </p>
+      </div>
+
+      <!-- Card 3: Team Member -->
+      <div class="card">
+        <div class="avatar-container">
+          <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="#334155"/>
+            <circle cx="50" cy="38" r="18" fill="#a855f7"/>
+            <path d="M 20 85 C 20 62, 80 62, 80 85 Z" fill="#a855f7"/>
+          </svg>
+        </div>
+        <h2 class="member-name">Marcus Vance</h2>
+        <span class="member-role">Backend Engineer</span>
+        <p class="member-desc">
+          Focuses on microservice architecture, API design, database optimizations, and system performance.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Team Showcase | Assignment 5 - Question 3</p>
+  </footer>
+
+</body>
+</html>

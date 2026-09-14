@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Requirement: Card must remain centered on screen using Flexbox */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* Requirement: perspective: 1000px; */
+.card-scene {
+    perspective: 1000px;
+    width: 320px;
+    height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flip Card Wrapper */
+.flip-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Requirement: transform-style: preserve-3d; and smooth transitions */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Requirement: Implement flip using transform: rotateY(180deg); on hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back common styling */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Hide back side when face away */
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(99, 102, 241, 0.2);
+    border: 1px solid #1f2937;
+}
+
+/* Front Side: Title and Image */
+.card-front {
+    background-color: #111827;
+}
+
+.card-image-box {
+    width: 160px;
+    height: 160px;
+    margin-top: 1rem;
+}
+
+.card-image-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+.card-front-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 0.5rem;
+}
+
+.tag {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+/* Requirement: Back side shows text description */
+.card-back {
+    background-color: #1e1b4b; /* Distinct back background */
+    border-color: #6366f1;
+    transform: rotateY(180deg); /* Pre-rotated back side */
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.card-back h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.card-back p {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.specs {
+    background: rgba(15, 23, 42, 0.6);
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.specs strong {
+    color: #38bdf8;
+}
+
+.btn-flip {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-flip:hover {
+    background: #4f46e5;
+}

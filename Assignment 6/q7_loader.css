@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Requirement: Center animation on page using Flexbox alignment */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.animation-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.loader-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 24px;
+    padding: 3.5rem 3rem;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(99, 102, 241, 0.15);
+    max-width: 480px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-card h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.loader-card p {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Requirement: Flexbox container for loader circles */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 60px;
+}
+
+/* Requirement: Three small circles using div elements */
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #6366f1;
+    /* Requirement: animation using @keyframes with transform: translateY() and animation-iteration-count: infinite */
+    animation: bounce 0.6s ease-in-out infinite alternate;
+}
+
+/* Requirement: Distinct colors & animation delays */
+.circle-1 {
+    background-color: #6366f1;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    background-color: #38bdf8;
+    animation-delay: 0.2s; /* Requirement: start animation with a slight delay */
+}
+
+.circle-3 {
+    background-color: #ec4899;
+    animation-delay: 0.4s; /* Requirement: start animation with a slight delay */
+}
+
+/* Requirement: Use @keyframes to control motion and timing with transform: translateY() */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-28px);
+        opacity: 1;
+        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    }
+}

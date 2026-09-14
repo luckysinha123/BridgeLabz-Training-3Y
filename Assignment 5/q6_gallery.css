@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Question 6: CSS-Only Photo Gallery
+   Demonstrates: Grid/Flex responsive multi-column layout, image scale up on hover
+   (transform: scale(1.1)), position: absolute caption overlay with opacity,
+   and clean box-shadow & border-radius styling.
+   ========================================================================== */
+
+/* --- Reset & Global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #0b0f19;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.gallery-header {
+  text-align: center;
+  padding: 3.5rem 1rem 2rem;
+}
+
+.gallery-header h1 {
+  font-size: 2.5rem;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-header p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+/* Container */
+.gallery-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+  padding-bottom: 4rem;
+}
+
+/* --- Responsive Multi-Column Grid Layout --- */
+/* Requirement: Use flexbox or grid to display images in multiple columns and adjust count per row */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Automatically adjusts columns */
+  gap: 2rem;
+}
+
+/* --- Gallery Item Container --- */
+.gallery-item {
+  position: relative;             /* Position context for position: absolute caption overlay */
+  border-radius: 16px;            /* REQUIREMENT: Clean border-radius styling */
+  overflow: hidden;               /* Clips image scaling within container bounds */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* REQUIREMENT: Clean modern box-shadow */
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  cursor: pointer;
+}
+
+/* Gallery Image Element */
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  display: block;
+  object-fit: cover;
+  /* Requirement: CSS transitions for scale and visual effects */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Hover Effect 1: Scale Up Image --- */
+/* Requirement: When hovered, image should slightly scale up (transform: scale(1.1)) */
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1);          /* Scale image up to 110% on hover */
+}
+
+/* --- Hover Effect 2: Caption Overlay --- */
+/* Requirement: Show a caption overlay using position: absolute and opacity */
+.caption-overlay {
+  position: absolute;             /* Absolute positioning pinned to bottom of container */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 70%, transparent 100%);
+  color: #ffffff;
+  
+  /* Opacity hidden by default, transitions to visible on hover */
+  opacity: 0;                     /* REQUIREMENT: Initial hidden opacity */
+  transform: translateY(15px);     /* Slight starting translation offset */
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Show caption on hover */
+.gallery-item:hover .caption-overlay {
+  opacity: 1;                     /* REQUIREMENT: Show caption overlay on hover */
+  transform: translateY(0);       /* Slide smoothly into position */
+}
+
+.caption-overlay h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 0.3rem;
+}
+
+.caption-overlay p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+/* Footer */
+.gallery-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #020617;
+  color: #64748b;
+  font-size: 0.875rem;
+  border-top: 1px solid #1e293b;
+}

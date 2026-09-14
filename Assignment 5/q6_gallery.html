@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 6 - CSS Photo Gallery</title>
+  <link rel="stylesheet" href="q6_gallery.css">
+</head>
+<body>
+
+  <!-- Gallery Page Header -->
+  <header class="gallery-header">
+    <h1>Nature & Architecture Gallery</h1>
+    <p>A responsive CSS-only photo gallery featuring scale animations & caption overlays.</p>
+  </header>
+
+  <!-- Main Gallery Container -->
+  <main class="gallery-container">
+    
+    <!-- Grid/Flex Multiple Column Gallery -->
+    <div class="gallery-grid">
+
+      <!-- Gallery Item 1 -->
+      <div class="gallery-item">
+        <svg class="gallery-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g1)"/>
+          <circle cx="200" cy="120" r="60" fill="#38bdf8" opacity="0.6"/>
+          <path d="M 0 300 L 150 180 L 250 250 L 400 130 L 400 300 Z" fill="#0369a1"/>
+        </svg>
+        <div class="caption-overlay">
+          <h3>Mountain Sunrise</h3>
+          <p>Majestic peaks meeting the early dawn sky.</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 2 -->
+      <div class="gallery-item">
+        <svg class="gallery-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#312e81"/>
+              <stop offset="100%" stop-color="#4c1d95"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g2)"/>
+          <polygon points="200,40 260,160 380,160 280,220 320,300 200,240 80,300 120,220 20,160 140,160" fill="#a855f7" opacity="0.7"/>
+        </svg>
+        <div class="caption-overlay">
+          <h3>Starlight Nebula</h3>
+          <p>Cosmic dust glowing in deep interstellar space.</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3 -->
+      <div class="gallery-item">
+        <svg class="gallery-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#064e3b"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g3)"/>
+          <rect x="50" y="50" width="100" height="200" fill="#10b981" opacity="0.5"/>
+          <rect x="180" y="100" width="80" height="150" fill="#34d399" opacity="0.6"/>
+          <rect x="290" y="30" width="70" height="220" fill="#059669" opacity="0.7"/>
+        </svg>
+        <div class="caption-overlay">
+          <h3>Emerald Forest</h3>
+          <p>Lush canopy sunlight in ancient woodland.</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4 -->
+      <div class="gallery-item">
+        <svg class="gallery-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c2d12"/>
+              <stop offset="100%" stop-color="#c2410c"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g4)"/>
+          <circle cx="200" cy="150" r="100" fill="#ea580c" opacity="0.6"/>
+          <circle cx="200" cy="150" r="50" fill="#f97316"/>
+        </svg>
+        <div class="caption-overlay">
+          <h3>Golden Horizon</h3>
+          <p>Crimson sunset over tranquil desert dunes.</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5 -->
+      <div class="gallery-item">
+        <svg class="gallery-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#111827"/>
+              <stop offset="100%" stop-color="#374151"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g5)"/>
+          <line x1="0" y1="0" x2="400" y2="300" stroke="#9ca3af" stroke-width="4" opacity="0.5"/>
+          <line x1="400" y1="0" x2="0" y2="300" stroke="#9ca3af" stroke-width="4" opacity="0.5"/>
+          <circle cx="200" cy="150" r="40" fill="#6b7280"/>
+        </svg>
+        <div class="caption-overlay">
+          <h3>Urban Geometry</h3>
+          <p>Modern architectural angles and steel reflections.</p>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6 -->
+      <div class="gallery-item">
+        <svg class="gallery-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#831843"/>
+              <stop offset="100%" stop-color="#be185d"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#g6)"/>
+          <circle cx="100" cy="100" r="70" fill="#f43f5e" opacity="0.6"/>
+          <circle cx="300" cy="200" r="80" fill="#fb7185" opacity="0.5"/>
+        </svg>
+        <div class="caption-overlay">
+          <h3>Cherry Blossom Tide</h3>
+          <p>Vibrant spring blooms in evening atmosphere.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Gallery Footer -->
+  <footer class="gallery-footer">
+    <p>&copy; 2026 CSS Gallery Showcase | Assignment 5 - Question 6</p>
+  </footer>
+
+</body>
+</html>

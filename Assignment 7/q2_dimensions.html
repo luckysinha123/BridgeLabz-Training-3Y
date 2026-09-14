@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2 - Height & Width Practice Layout</title>
+    <link rel="stylesheet" href="q2_dimensions.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Centered Container using Flexbox alignment -->
+    <div class="centered-viewport">
+        <header class="dim-header">
+            <h1>Height & Width Units Visualizer</h1>
+            <p>Demonstrating <code>px</code>, <code>%</code>, <code>vh</code>, <code>em</code>, <code>min-height</code>, <code>max-width</code>, and <code>overflow</code></p>
+        </header>
+
+        <!-- Container for 3 boxes with distinct sizes and colors -->
+        <main class="dimension-boxes-container">
+            <!-- Box 1: Fixed Pixel & EM units -->
+            <div class="dim-box box-1">
+                <h2>Box 1 (Pixel & EM)</h2>
+                <div class="code-info">
+                    <p><code>width: 320px;</code></p>
+                    <p><code>height: 18em;</code></p>
+                    <p><code>overflow: auto;</code></p>
+                </div>
+                <div class="scrollable-content">
+                    <p>This box demonstrates scrollable overflow content. When inner text exceeds 18em height, a custom scrollbar automatically appears without distorting box layout bounds.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                </div>
+            </div>
+
+            <!-- Box 2: Viewport Height (vh) & Max-Width -->
+            <div class="dim-box box-2">
+                <h2>Box 2 (VH & Max-Width)</h2>
+                <div class="code-info">
+                    <p><code>width: 80%;</code></p>
+                    <p><code>max-width: 360px;</code></p>
+                    <p><code>height: 35vh;</code></p>
+                    <p><code>min-height: 220px;</code></p>
+                </div>
+                <p class="desc">Scales adaptively up to 360px max-width, maintaining 35% of total viewport height with a 220px min-height safeguard.</p>
+            </div>
+
+            <!-- Box 3: Percentage % & Hidden Overflow -->
+            <div class="dim-box box-3">
+                <h2>Box 3 (Percentage & Overflow Hidden)</h2>
+                <div class="code-info">
+                    <p><code>width: 25%;</code></p>
+                    <p><code>min-height: 250px;</code></p>
+                    <p><code>overflow: hidden;</code></p>
+                </div>
+                <p class="desc">Clips any excess content cleanly using <code>overflow: hidden;</code> while spanning 25% relative width.</p>
+                <div class="overflow-graphic">OVERFLOW HIDDEN CONTENT GRAPHIC</div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

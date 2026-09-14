@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9 - CSS 3D Card Flip Animation</title>
+    <link rel="stylesheet" href="q9_cardflip.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Outer scene wrapper centered using Flexbox -->
+    <div class="card-scene">
+        <!-- 3D Flipping Card Container -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <!-- Front Side: Title and Image -->
+                <div class="card-front">
+                    <div class="card-image-box">
+                        <svg viewBox="0 0 200 200" fill="none">
+                            <rect width="200" height="200" rx="20" fill="url(#frontGrad)"/>
+                            <circle cx="100" cy="100" r="50" fill="white" opacity="0.2"/>
+                            <path d="M100 60 L140 140 L60 140 Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="frontGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#a855f7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="card-front-content">
+                        <span class="tag">Hover to Flip</span>
+                        <h2>Quantum Computing Engine</h2>
+                    </div>
+                </div>
+
+                <!-- Back Side: Text Description -->
+                <div class="card-back">
+                    <h3>Architecture Details</h3>
+                    <p>The Quantum Engine leverages 128-qubit superconducting processors to execute complex cryptographic algorithms and molecular simulations in microseconds.</p>
+                    <div class="specs">
+                        <div class="spec-item"><strong>Efficiency:</strong> 99.9%</div>
+                        <div class="spec-item"><strong>Latency:</strong> 0.02ms</div>
+                    </div>
+                    <button class="btn-flip">Launch Console</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

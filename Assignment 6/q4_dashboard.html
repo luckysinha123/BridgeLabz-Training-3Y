@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 - Grid Dashboard Layout</title>
+    <link rel="stylesheet" href="q4_dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-grid">
+        <!-- Header spans top across columns -->
+        <header class="dash-header">
+            <div class="logo">
+                <span class="dot"></span> TechPulse Analytics Dashboard
+            </div>
+            <div class="user-profile">
+                <span>Welcome, Admin</span>
+                <div class="avatar">A</div>
+            </div>
+        </header>
+
+        <!-- Sidebar on left -->
+        <aside class="dash-sidebar">
+            <nav class="side-nav">
+                <a href="#" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Overview
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> Analytics
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Users
+                </a>
+                <a href="#" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main content area: 4 boxes arranged in 2 rows & 2 columns -->
+        <main class="dash-main">
+            <!-- Box 1: Spans 2 columns (grid-column: span 2) -->
+            <div class="dash-box box-featured">
+                <div class="box-header">
+                    <h3>Revenue Growth Chart</h3>
+                    <span class="tag green">+24.5%</span>
+                </div>
+                <div class="chart-placeholder">
+                    <svg viewBox="0 0 500 120" preserveAspectRatio="none">
+                        <path d="M0 100 Q 100 40, 200 70 T 400 20 T 500 40 L 500 120 L 0 120 Z" fill="rgba(99, 102, 241, 0.2)"/>
+                        <path d="M0 100 Q 100 40, 200 70 T 400 20 T 500 40" fill="none" stroke="#6366f1" stroke-width="4"/>
+                    </svg>
+                </div>
+                <p>Spans two columns (grid-column: span 2) representing full width system metrics.</p>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="dash-box">
+                <h3>Active Users</h3>
+                <div class="stat-number">12,840</div>
+                <p class="stat-sub">+1,200 new registrations this week</p>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="dash-box">
+                <h3>Server Uptime</h3>
+                <div class="stat-number">99.98%</div>
+                <p class="stat-sub">Operational across 8 regions</p>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="dash-box">
+                <h3>Total Conversions</h3>
+                <div class="stat-number">4,520</div>
+                <p class="stat-sub">$48,200 gross sales generated</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

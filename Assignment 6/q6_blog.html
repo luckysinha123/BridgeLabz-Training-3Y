@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q6 - Grid Blog Layout with Grid Template Areas</title>
+    <link rel="stylesheet" href="q6_blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blog-grid-wrapper">
+        <!-- Header with title and nav links -->
+        <header class="blog-header">
+            <h1 class="blog-title">DevTech Insights</h1>
+            <nav class="blog-nav">
+                <a href="#">Articles</a>
+                <a href="#">Tutorials</a>
+                <a href="#">Podcasts</a>
+                <a href="#">Newsletter</a>
+            </nav>
+        </header>
+
+        <!-- Sidebar on the left containing categories -->
+        <aside class="blog-sidebar">
+            <h3>Topic Categories</h3>
+            <ul class="category-list">
+                <li><a href="#" class="active">Frontend Engineering (14)</a></li>
+                <li><a href="#">CSS Grid & Flexbox (28)</a></li>
+                <li><a href="#">JavaScript Fundamentals (19)</a></li>
+                <li><a href="#">Backend & APIs (11)</a></li>
+                <li><a href="#">DevOps & CI/CD (8)</a></li>
+            </ul>
+
+            <div class="widget">
+                <h4>Weekly Newsletter</h4>
+                <p>Get curated developer updates delivered to your inbox every Friday.</p>
+            </div>
+        </aside>
+
+        <!-- Main content area displaying two blog posts side-by-side -->
+        <main class="blog-main">
+            <div class="posts-container">
+                <!-- Post 1 -->
+                <article class="post-card">
+                    <div class="post-category">CSS Layouts</div>
+                    <h2>Mastering CSS Grid Template Areas for Modern Web Development</h2>
+                    <p class="post-meta">Published Sept 12, 2026 • 5 min read</p>
+                    <p class="post-excerpt">Grid template areas provide an intuitive, visual syntax for defining complex web layouts. Learn how to construct responsive grids seamlessly without fragile offsets.</p>
+                    <a href="#" class="read-more">Read Full Article &rarr;</a>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="post-card">
+                    <div class="post-category">Performance</div>
+                    <h2>Optimizing Flexbox Rendering & Re-paints in High Density Dashboards</h2>
+                    <p class="post-meta">Published Sept 10, 2026 • 8 min read</p>
+                    <p class="post-excerpt">Understand the browser layout engine reflow cycle when using flex-grow and auto margins across thousands of dynamic DOM elements.</p>
+                    <a href="#" class="read-more">Read Full Article &rarr;</a>
+                </article>
+            </div>
+        </main>
+
+        <!-- Footer with contact info -->
+        <footer class="blog-footer">
+            <div class="footer-contact">
+                <p><strong>DevTech Insights Blog</strong> | Contact us: contact@devtechinsights.io | Phone: +1 (800) 555-0199</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

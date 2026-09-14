@@ -1,0 +1,399 @@
+/* ==========================================================================
+   Question 10: Complete Webpage Layout (Box Model & Positioning Mastery)
+   Demonstrates: 
+   1. Box Model properties: margin, padding, border, and outline
+   2. Positioning types: relative, absolute, fixed, and sticky
+   3. Alignment: Flexbox & CSS Grid responsive structures
+   4. Colors: rgba() translucent overlays and gradients
+   ========================================================================== */
+
+/* --- Reset & Global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  color: #f8fafc;
+}
+
+body {
+  background-color: #0b0f19;
+  line-height: 1.6;
+}
+
+/* --- 1. Positioning Type 1: FIXED --- */
+/* Requirement: Demonstrate fixed positioning */
+.fixed-floating-btn {
+  position: fixed;               /* POSITIONING: FIXED */
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background-color: #6366f1;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.fixed-floating-btn:hover {
+  transform: scale(1.1);
+}
+
+/* --- 2. Positioning Type 2: STICKY --- */
+/* Requirement: Header with navigation (sticky at top) */
+.master-header {
+  position: sticky;              /* POSITIONING: STICKY */
+  top: 0;
+  z-index: 1000;
+  
+  /* COLOR: rgba() transparent background */
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  
+  /* BOX MODEL: border & padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;               /* BOX MODEL: margin */
+  display: flex;                /* ALIGNMENT: Flexbox */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.main-nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1.8rem;          /* BOX MODEL: margin */
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #38bdf8;
+}
+
+/* --- 3. Hero Section (Positioning: RELATIVE & ABSOLUTE, RGBA Gradient) --- */
+.hero-section {
+  position: relative;            /* POSITIONING: RELATIVE */
+  min-height: 80vh;
+  
+  /* COLOR: rgba() gradient combined with SVG background */
+  background: 
+    linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.9)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect fill='%231e1b4b' width='800' height='500'/%3E%3Ccircle cx='400' cy='250' r='300' fill='%23312e81' opacity='0.5'/%3E%3Cpolygon points='100,400 700,400 400,100' fill='%234338ca' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  
+  display: flex;                 /* ALIGNMENT: Flexbox centering */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1.5rem;          /* BOX MODEL: padding */
+}
+
+.hero-content {
+  max-width: 800px;
+  
+  /* BOX MODEL: padding & border */
+  padding: 3rem;
+  background: rgba(30, 41, 59, 0.7); /* COLOR: rgba() translucent container */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  padding: 0.35rem 1rem;        /* BOX MODEL: padding */
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;          /* BOX MODEL: margin */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+  transition: transform 0.3s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* --- Section Container Base --- */
+.section-container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* --- 4. About Section (2 Columns: Text + Image) --- */
+.about-section {
+  padding: 5rem 0;
+  background-color: #0f172a;
+  border-bottom: 1px solid #1e293b;
+}
+
+.about-grid {
+  display: grid;                 /* ALIGNMENT: CSS Grid 2 columns */
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 2.25rem;
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+.about-text .lead {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+}
+
+.about-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-item {
+  border-left: 3px solid #6366f1; /* BOX MODEL: border */
+  padding-left: 1rem;
+}
+
+.stat-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #f8fafc;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.about-image-wrapper {
+  position: relative;            /* POSITIONING: RELATIVE */
+}
+
+.about-svg {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 5. Services Section (Three Boxes in a Row) --- */
+.services-section {
+  padding: 5rem 0;
+  background-color: #0b0f19;
+  border-bottom: 1px solid #1e293b;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 2.4rem;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.section-title p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+.services-grid {
+  display: grid;                 /* ALIGNMENT: Grid 3 boxes in a row */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-box {
+  background-color: #1e293b;
+  
+  /* BOX MODEL: padding, border, margin */
+  padding: 2.2rem 1.8rem;
+  border-radius: 14px;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+}
+
+.icon-box {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.service-box h3 {
+  font-size: 1.3rem;
+  color: #f8fafc;
+  margin-bottom: 0.8rem;
+}
+
+.service-box p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+/* --- 6. Contact Section (Simple Form & Outline Property) --- */
+.contact-section {
+  padding: 5rem 0;
+  background-color: #0f172a;
+}
+
+.master-contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #1e293b;
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 0.4rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;         /* BOX MODEL: padding */
+  background-color: #0b0f19;
+  color: #f8fafc;
+  border: 1px solid #334155;     /* BOX MODEL: border */
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: outline 0.2s ease, border-color 0.2s ease;
+}
+
+/* BOX MODEL PROPERTY: OUTLINE DEMONSTRATION */
+/* Requirement: Use outline property */
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #38bdf8;
+  
+  /* REQUIREMENT: OUTLINE property explicitly defined */
+  outline: 2px solid #38bdf8;     /* BOX MODEL: outline */
+  outline-offset: 2px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #6366f1, #38bdf8);
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+/* --- 7. Footer --- */
+.master-footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #020617;
+  color: #64748b;
+  font-size: 0.9rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 850px) {
+  .about-grid, .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

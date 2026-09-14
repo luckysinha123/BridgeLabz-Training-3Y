@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Question 4: Long Article Webpage CSS
+   Demonstrates: Article typography, ::first-letter drop caps, ::first-line bolding,
+   custom <mark> highlighting, blockquote left border & background, and paragraph margins.
+   ========================================================================== */
+
+/* --- Base & Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif; /* Classic article typography */
+  background-color: #0f172a;
+  color: #e2e8f0;
+  line-height: 1.8;
+  padding: 3rem 1rem;
+}
+
+/* Article Container */
+.article-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #1e293b;
+  padding: 3.5rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border: 1px solid #334155;
+}
+
+/* --- Article Header & Subheading --- */
+.article-header {
+  border-bottom: 2px solid #334155;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.article-title {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.article-subheading {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+.author-name {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* --- Article Paragraphs Spacing --- */
+/* Requirement: Add consistent spacing between paragraphs using margins */
+.article-body p {
+  margin-bottom: 1.8rem; /* Consistent margin spacing between paragraphs */
+  font-size: 1.15rem;
+  color: #cbd5e1;
+  text-align: justify;
+}
+
+/* --- Pseudo-Element 1: ::first-letter --- */
+/* Requirement: Style the first letter of each paragraph with a larger font using ::first-letter */
+.article-body p::first-letter {
+  font-size: 3.2rem;       /* Significantly larger drop-cap size */
+  font-weight: 800;
+  float: left;             /* Floating first letter for drop cap layout */
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 2px;
+  color: #38bdf8;          /* Accent cyan color for drop cap */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* --- Pseudo-Element 2: ::first-line --- */
+/* Requirement: Make the first line of each paragraph bold using ::first-line */
+.article-body p::first-line {
+  font-weight: 700;        /* Bold weight for the very first line */
+  color: #f8fafc;          /* High contrast bright color for first line */
+  letter-spacing: 0.02em;
+}
+
+/* --- Custom Styled <mark> Keywords --- */
+/* Requirement: Highlight key words using <mark> and style it with custom background color */
+mark {
+  background-color: #fbbf24; /* Warm amber/gold highlight background */
+  color: #0f172a;            /* Dark readable text color on yellow */
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* --- Emphasized Blockquote --- */
+/* Requirement: Add a left border and background color to emphasize the blockquote section */
+blockquote.featured-quote {
+  background-color: #0f172a;       /* Distinct dark background color */
+  border-left: 6px solid #8b5cf6;   /* Thick purple left border */
+  padding: 1.8rem 2rem;            /* Spacing inside blockquote */
+  margin: 2.5rem 0;                /* Vertical margin spacing */
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #f1f5f9;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+blockquote.featured-quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.9rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #a78bfa;
+  margin-top: 0.8rem;
+  font-weight: 600;
+}
+
+/* Code Snippet styling within article */
+code {
+  font-family: monospace;
+  background-color: #090d16;
+  color: #38bdf8;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #334155;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .article-container {
+    padding: 1.5rem;
+  }
+  .article-title {
+    font-size: 1.8rem;
+  }
+  .article-body p::first-letter {
+    font-size: 2.5rem;
+  }
+}

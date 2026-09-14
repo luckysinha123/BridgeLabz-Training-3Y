@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem;
+}
+
+.gallery-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-head {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-head h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.gallery-head p {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+/* Requirement: Use grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Gallery Figure Item */
+.gallery-item {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.img-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden; /* Clips image scale overflow */
+    position: relative;
+    background: #0b0f19;
+}
+
+/* Requirement: Each image should fill its grid cell completely */
+.img-container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    /* Requirement: Add transition: transform 0.5s ease; for smooth zoom effect */
+    transition: transform 0.5s ease;
+}
+
+/* Requirement: scale up slightly on hover */
+.gallery-item:hover svg {
+    transform: scale(1.15);
+}
+
+/* Requirement: Include image captions below each image using <figcaption> */
+figcaption {
+    padding: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    text-align: center;
+    background-color: #1e293b;
+    border-top: 1px solid #334155;
+    transition: color 0.3s ease;
+}
+
+.gallery-item:hover figcaption {
+    color: #38bdf8;
+}

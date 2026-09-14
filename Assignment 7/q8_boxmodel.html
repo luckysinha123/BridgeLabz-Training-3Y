@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8 - Box Model Exploration Page</title>
+    <link rel="stylesheet" href="q8_boxmodel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="boxmodel-wrapper">
+        <header class="bm-header">
+            <h1>CSS Box Model Visualizer</h1>
+            <p>Visualizing Margin, Border, Padding, Content, and Box-Sizing differences</p>
+        </header>
+
+        <!-- Part 1: Nested Layers Visualizer (Margin -> Border -> Padding -> Content) -->
+        <section class="nested-layers-section">
+            <h2>1. Interactive Box Model Layer Breakdown</h2>
+            <div class="layer-margin">
+                <span class="layer-title title-margin">MARGIN LAYER (External Spacing)</span>
+                <div class="layer-border">
+                    <span class="layer-title title-border">BORDER LAYER (Boundary)</span>
+                    <div class="layer-padding">
+                        <span class="layer-title title-padding">PADDING LAYER (Internal Clearance)</span>
+                        <div class="layer-content">
+                            <span class="layer-title title-content">CONTENT LAYER</span>
+                            <p>Width: 200px | Height: 80px</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Box-Sizing Comparison (content-box vs border-box) -->
+        <section class="box-sizing-section">
+            <h2>2. Default content-box vs. border-box Comparison</h2>
+            <p class="section-desc">Both elements have <code>width: 280px; padding: 20px; border: 10px solid;</code></p>
+            
+            <div class="comparison-flex">
+                <!-- Content Box -->
+                <div class="box-demo content-box-demo">
+                    <h3>content-box (Default)</h3>
+                    <p>Total Rendered Width = Width (280) + Padding (40) + Border (20) = <strong>340px</strong></p>
+                </div>
+
+                <!-- Border Box -->
+                <div class="box-demo border-box-demo">
+                    <h3>border-box</h3>
+                    <p>Total Rendered Width = Exactly <strong>280px</strong> (Padding & Border absorbed inside width)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

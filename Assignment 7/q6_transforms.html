@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q6 - CSS Transformations Showcase</title>
+    <link rel="stylesheet" href="q6_transforms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="transform-demo-container">
+        <header class="transform-header">
+            <h1>CSS 2D Transformations Visualizer</h1>
+            <p>Hover over each box to trigger smooth 0.4s 2D transform transitions</p>
+        </header>
+
+        <!-- Requirement: Arrange boxes horizontally using Flexbox -->
+        <main class="transforms-flex-row">
+            <!-- Box 1: Rotate -->
+            <div class="transform-card-wrapper">
+                <div class="transform-box box-rotate">
+                    <div class="icon">🔄</div>
+                    <span>Hover Me</span>
+                </div>
+                <!-- Requirement: Label under box describing transformation -->
+                <div class="transform-label">
+                    <h3>rotate(15deg)</h3>
+                    <p>Rotates element clockwise along Z axis</p>
+                </div>
+            </div>
+
+            <!-- Box 2: Scale -->
+            <div class="transform-card-wrapper">
+                <div class="transform-box box-scale">
+                    <div class="icon">🔍</div>
+                    <span>Hover Me</span>
+                </div>
+                <!-- Requirement: Label under box describing transformation -->
+                <div class="transform-label">
+                    <h3>scale(1.18)</h3>
+                    <p>Magnifies dimensions uniformly</p>
+                </div>
+            </div>
+
+            <!-- Box 3: Translate -->
+            <div class="transform-card-wrapper">
+                <div class="transform-box box-translate">
+                    <div class="icon">🚀</div>
+                    <span>Hover Me</span>
+                </div>
+                <!-- Requirement: Label under box describing transformation -->
+                <div class="transform-label">
+                    <h3>translate(0, -14px)</h3>
+                    <p>Offsets position upward along Y axis</p>
+                </div>
+            </div>
+
+            <!-- Box 4: Skew -->
+            <div class="transform-card-wrapper">
+                <div class="transform-box box-skew">
+                    <div class="icon">📐</div>
+                    <span>Hover Me</span>
+                </div>
+                <!-- Requirement: Label under box describing transformation -->
+                <div class="transform-label">
+                    <h3>skew(-12deg)</h3>
+                    <p>Distorts angles along X axis</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

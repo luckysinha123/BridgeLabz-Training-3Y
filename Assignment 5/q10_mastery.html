@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 10 - CSS Mastery Layout</title>
+  <link rel="stylesheet" href="q10_mastery.css">
+</head>
+<body>
+
+  <!-- Floating Fixed Quick Contact Action Button (Positioning: Fixed) -->
+  <div class="fixed-floating-btn" title="Quick Support">
+    <span>💬</span>
+  </div>
+
+  <!-- Header with Navigation (Positioning: Sticky at top) -->
+  <header class="master-header">
+    <div class="nav-container">
+      <div class="brand-title">Apex Studios</div>
+      <nav class="main-nav">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section (Positioning: Relative & Absolute Centered Content, RGBA Gradient) -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <span class="hero-badge">Next-Gen Digital Solutions</span>
+      <h1>Mastery in CSS Layout & Design</h1>
+      <p>Demonstrating advanced Box Model mastery, multi-type positioning, flex/grid alignment, and custom color gradients.</p>
+      <a href="#services" class="hero-btn">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Section 2: About Section (2 Columns: Text + Image) -->
+  <section id="about" class="about-section">
+    <div class="section-container">
+      <div class="about-grid">
+        <!-- Column 1: Text -->
+        <div class="about-text">
+          <h2>About Our Studio</h2>
+          <p class="lead">We blend technical architecture with cutting-edge visual aesthetics.</p>
+          <p>
+            Our team focuses on semantic HTML5 structure, modular CSS component architectures, and responsive layout systems that deliver flawless user experiences on any device.
+          </p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-num">10+</span>
+              <span class="stat-label">Years Exp</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">250+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+          </div>
+        </div>
+        <!-- Column 2: Image Container -->
+        <div class="about-image-wrapper">
+          <svg class="about-svg" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+            <rect width="500" height="350" fill="#1e293b" rx="12"/>
+            <circle cx="250" cy="175" r="100" fill="#6366f1" opacity="0.3"/>
+            <rect x="150" y="100" width="200" height="150" fill="#4f46e5" rx="8" opacity="0.7"/>
+            <circle cx="250" cy="175" r="40" fill="#38bdf8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Services Section (Three Boxes in a Row) -->
+  <section id="services" class="services-section">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Our Core Services</h2>
+        <p>Tailored solutions built with precision and modern technology.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Box 1 -->
+        <div class="service-box">
+          <div class="icon-box">🎨</div>
+          <h3>UI/UX Architecture</h3>
+          <p>Designing modern, intuitive interfaces crafted with rich HSL/RGBA palettes and dynamic animations.</p>
+        </div>
+        <!-- Box 2 -->
+        <div class="service-box">
+          <div class="icon-box">⚡</div>
+          <h3>Full-Stack Dev</h3>
+          <p>Building high-performance, responsive web applications engineered for scalability and speed.</p>
+        </div>
+        <!-- Box 3 -->
+        <div class="service-box">
+          <div class="icon-box">🚀</div>
+          <h3>Performance Optimization</h3>
+          <p>Optimizing layout render trees, CSS delivery, asset pipelines, and core web vitals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Contact Section (Simple Form) -->
+  <section id="contact" class="contact-section">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Connect With Us</h2>
+        <p>Send a message to start your next digital project.</p>
+      </div>
+
+      <form class="master-contact-form" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="m-name">Name</label>
+            <input type="text" id="m-name" placeholder="Your Name" required>
+          </div>
+          <div class="form-field">
+            <label for="m-email">Email</label>
+            <input type="email" id="m-email" placeholder="Your Email" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="m-message">Message</label>
+          <textarea id="m-message" rows="4" placeholder="How can we assist you?" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer with Copyright Text -->
+  <footer class="master-footer">
+    <p>&copy; 2026 Apex Studios. All Rights Reserved. | Assignment 5 - Question 10</p>
+  </footer>
+
+</body>
+</html>

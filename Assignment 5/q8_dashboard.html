@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 8 - Dashboard Layout</title>
+  <link rel="stylesheet" href="q8_dashboard.css">
+</head>
+<body>
+
+  <!-- Top Fixed Header -->
+  <header class="top-header">
+    <div class="brand">
+      <span class="brand-logo">⚡</span> AdminConsole
+    </div>
+    <div class="user-profile">
+      <span class="status-indicator"></span>
+      <span class="username">Lucky Sinha</span>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active"><a href="#overview"><span class="icon">📊</span> Overview</a></li>
+          <li><a href="#analytics"><span class="icon">📈</span> Analytics</a></li>
+          <li><a href="#users"><span class="icon">👥</span> Users</a></li>
+          <li><a href="#orders"><span class="icon">🛒</span> Orders</a></li>
+          <li><a href="#settings"><span class="icon">⚙️</span> Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <p>v2.4 System Active</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <div class="content-header">
+        <h1>Dashboard Overview</h1>
+        <p>Welcome back! Here is your daily system summary.</p>
+      </div>
+
+      <!-- Grid of Evenly Spaced Content Boxes with Shadows -->
+      <div class="content-boxes">
+        
+        <!-- Content Box 1 -->
+        <div class="content-box">
+          <div class="box-header">
+            <h3>Total Revenue</h3>
+            <span class="box-badge green">+14.2%</span>
+          </div>
+          <div class="box-body">
+            <p class="stat-value">$128,450.00</p>
+            <p class="stat-desc">Updated 5 minutes ago</p>
+          </div>
+        </div>
+
+        <!-- Content Box 2 -->
+        <div class="content-box">
+          <div class="box-header">
+            <h3>Active Subscriptions</h3>
+            <span class="box-badge blue">+8.5%</span>
+          </div>
+          <div class="box-body">
+            <p class="stat-value">3,840 Users</p>
+            <p class="stat-desc">Across all tiers</p>
+          </div>
+        </div>
+
+        <!-- Content Box 3 -->
+        <div class="content-box">
+          <div class="box-header">
+            <h3>Server Uptime</h3>
+            <span class="box-badge purple">99.99%</span>
+          </div>
+          <div class="box-body">
+            <p class="stat-value">45 Days 12 Hrs</p>
+            <p class="stat-desc">Zero downtime recorded</p>
+          </div>
+        </div>
+
+        <!-- Content Box 4 -->
+        <div class="content-box">
+          <div class="box-header">
+            <h3>Pending Tasks</h3>
+            <span class="box-badge orange">12 Items</span>
+          </div>
+          <div class="box-body">
+            <p class="stat-value">5 High Priority</p>
+            <p class="stat-desc">Requires admin review</p>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Question 7: Contact Page with Semantic Form
+   Demonstrates: Vertical and horizontal centering via Flexbox (min-height: 100vh),
+   styled inputs with padding, border-radius, & subtle shadows, :focus selector
+   border color change, consistent theme colors, and margin spacing without tables.
+   ========================================================================== */
+
+/* --- Reset & Base Styling --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  
+  /* REQUIREMENT: Consistent theme background-color & text color */
+  background-color: #0b0f19;       /* Dark slate background */
+  color: #f8fafc;                  /* Light theme text */
+  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Vertical and Horizontal Centering --- */
+/* Requirement: Center the form vertically and horizontally using CSS layout techniques */
+.page-wrapper {
+  flex: 1;
+  display: flex;                  /* Flexbox container for centering */
+  justify-content: center;        /* Horizontal centering */
+  align-items: center;            /* Vertical centering */
+  padding: 2rem 1rem;
+}
+
+/* --- Contact Form Card --- */
+.contact-card {
+  width: 100%;
+  max-width: 550px;
+  background-color: #1e293b;       /* Card background */
+  border-radius: 16px;            /* Card rounded corners */
+  padding: 2.5rem;
+  border: 1px solid #334155;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Card shadow */
+}
+
+/* Header inside card */
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* --- Form Field Spacing --- */
+/* Requirement: Add spacing between fields using margins */
+.form-group {
+  margin-bottom: 1.5rem;          /* Margin spacing between fields */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Input Field Styling --- */
+/* Requirement: Style all inputs with padding, border-radius, and subtle shadows */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;          /* REQUIREMENT: Padding inside input */
+  background-color: #0f172a;      /* Dark input background */
+  color: #f8fafc;                 /* Input text color */
+  border: 1.5px solid #334155;    /* Default border */
+  border-radius: 8px;             /* REQUIREMENT: Border radius */
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); /* REQUIREMENT: Subtle shadow */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;                  /* Remove default browser outline */
+}
+
+.form-group textarea {
+  resize: vertical;               /* Allow vertical resizing only */
+  min-height: 120px;
+}
+
+/* --- Input Focus Selector --- */
+/* Requirement: Change the border color of an input when it is focused (:focus selector) */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #38bdf8;          /* REQUIREMENT: Change border color on focus */
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25); /* Glowing focus ring shadow */
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #7dd3fc;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1.25rem;
+  background-color: #020617;
+  color: #64748b;
+  font-size: 0.875rem;
+  border-top: 1px solid #1e293b;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 1.75rem;
+  }
+}

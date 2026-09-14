@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 - Shadows & Depth Effect Layout</title>
+    <link rel="stylesheet" href="q4_shadows.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="shadow-demo-container">
+        <header class="shadow-header">
+            <!-- Requirement: Add text-shadow to headings for depth -->
+            <h1 class="depth-heading">Box Shadow & Text Depth Showcase</h1>
+            <p>Demonstrating ambient shadows, multi-layered elevation, glow effects, and text-shadow depth</p>
+        </header>
+
+        <!-- Requirement: Arrange cards in a single row using Flexbox -->
+        <main class="cards-row">
+            <!-- Card 1: Soft Ambient Shadow -->
+            <div class="shadow-card card-ambient">
+                <div class="card-avatar">⚡</div>
+                <h3>Soft Ambient Shadow</h3>
+                <p>Features a broad, low-contrast blur shadow for subtle ambient elevation.</p>
+                <div class="shadow-code"><code>box-shadow: 0 10px 30px rgba(0,0,0,0.3);</code></div>
+            </div>
+
+            <!-- Card 2: Multi-Layered Deep Shadow -->
+            <div class="shadow-card card-layered">
+                <div class="card-avatar">🔮</div>
+                <h3>Multi-Layer Depth</h3>
+                <p>Combines a sharp key shadow with a soft ambient shadow for 3D realism.</p>
+                <div class="shadow-code"><code>box-shadow: 0 4px 6px ..., 0 20px 40px ...;</code></div>
+            </div>
+
+            <!-- Card 3: Neon Colored Glow Shadow -->
+            <div class="shadow-card card-glow">
+                <div class="card-avatar">💎</div>
+                <h3>Neon Glow Shadow</h3>
+                <p>Uses tinted primary color stop values to cast an luminous outer glow.</p>
+                <div class="shadow-code"><code>box-shadow: 0 0 25px rgba(99,102,241,0.4);</code></div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
