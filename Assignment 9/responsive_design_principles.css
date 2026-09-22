@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #ff5722;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Grid Layout for the 3 boxes */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.principle-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    border: 1px solid #eee;
+}
+
+.principle-box h2 {
+    color: #ff5722;
+    margin-bottom: 15px;
+    transition: color 0.4s ease;
+}
+
+.principle-box p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    transition: color 0.4s ease;
+}
+
+.principle-box code {
+    display: block;
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    color: #d84315;
+    font-family: 'Courier New', Courier, monospace;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Hover Effects */
+.principle-box:hover {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.3);
+}
+
+.principle-box:hover h2, 
+.principle-box:hover p {
+    color: white;
+}
+
+.principle-box:hover code {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Responsive below 600px */
+@media (max-width: 768px) {
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+}

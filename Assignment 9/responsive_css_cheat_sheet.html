@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS Cheat Sheet</title>
+    <link rel="stylesheet" href="responsive_css_cheat_sheet.css">
+</head>
+<body>
+    <header>
+        <h1>Responsive CSS Cheat Sheet</h1>
+    </header>
+    <main>
+        <section class="cheat-sheet-grid">
+            <div class="cheat-box">
+                <h2>Filters</h2>
+                <div class="content">
+                    <p>Apply graphical effects like blur or color shift.</p>
+                    <code>filter: grayscale(100%);</code>
+                </div>
+            </div>
+            
+            <div class="cheat-box">
+                <h2>Media Queries</h2>
+                <div class="content">
+                    <p>Apply CSS rules based on device characteristics like width.</p>
+                    <code>@media (max-width: 700px) { ... }</code>
+                </div>
+            </div>
+            
+            <div class="cheat-box">
+                <h2>Flexbox</h2>
+                <div class="content">
+                    <p>1D layout model for alignment and space distribution.</p>
+                    <code>display: flex; justify-content: center;</code>
+                </div>
+            </div>
+            
+            <div class="cheat-box">
+                <h2>CSS Grid</h2>
+                <div class="content">
+                    <p>2D layout system for rows and columns.</p>
+                    <code>display: grid; grid-template-columns: 1fr 1fr;</code>
+                </div>
+            </div>
+
+            <div class="cheat-box">
+                <h2>Typography</h2>
+                <div class="content">
+                    <p>Fluid typography scaling dynamically.</p>
+                    <code>font-size: clamp(1rem, 2vw, 2rem);</code>
+                </div>
+            </div>
+
+            <div class="cheat-box">
+                <h2>Viewport Units</h2>
+                <div class="content">
+                    <p>Sizing relative to the viewport.</p>
+                    <code>width: 100vw; height: 100vh;</code>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Assignment 9 - Question 6</p>
+    </footer>
+</body>
+</html>

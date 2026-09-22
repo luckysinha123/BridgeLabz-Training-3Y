@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8: Box-Sizing Comparison</title>
+    <link rel="stylesheet" href="q8_box_sizing.css">
+</head>
+<body>
+    <header>
+        <h1>Box-Sizing Comparison</h1>
+    </header>
+    <main class="content-wrapper">
+        <p class="description">
+            The <strong>content-box</strong> (default) calculates the total width by adding width + padding + border. 
+            The <strong>border-box</strong> calculates the total width as exactly the specified width (padding and border are included inside).
+        </p>
+        
+        <div class="boxes-container">
+            <div class="box content-box">
+                <h2>content-box</h2>
+                <p>Width: 300px<br>Padding: 30px<br>Border: 10px</p>
+                <p><strong>Total Width: 380px</strong></p>
+            </div>
+            <div class="box border-box">
+                <h2>border-box</h2>
+                <p>Width: 300px<br>Padding: 30px<br>Border: 10px</p>
+                <p><strong>Total Width: 300px</strong></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Assignment 8 - Question 8</p>
+    </footer>
+</body>
+</html>

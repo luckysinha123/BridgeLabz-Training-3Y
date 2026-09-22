@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #4f46e5;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Desktop layout: 4 columns */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    /* calc(25% - (3*20px)/4) */
+    flex: 1 1 calc(25% - 15px);
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+.card p {
+    color: #4b5563;
+}
+
+/* Hover color change */
+.card:hover {
+    background-color: #e0e7ff;
+}
+
+/* Tablet Layout: max-width 900px */
+@media (max-width: 900px) {
+    .card {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* Mobile Layout: max-width 600px */
+@media (max-width: 600px) {
+    .card-container {
+        flex-direction: column; /* Stack in one column */
+    }
+    
+    .card {
+        flex: 1 1 100%;
+    }
+}

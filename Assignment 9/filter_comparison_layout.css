@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.comparison-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.comparison-item {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.comparison-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+figcaption {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* CSS Filter on the second image */
+.applied-filter {
+    filter: sepia(80%) contrast(150%);
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Hover removes filter smoothly */
+.filtered-item:hover .applied-filter {
+    filter: none;
+}
+
+/* Responsive below 700px */
+@media (max-width: 700px) {
+    .comparison-container {
+        flex-direction: column;
+    }
+}

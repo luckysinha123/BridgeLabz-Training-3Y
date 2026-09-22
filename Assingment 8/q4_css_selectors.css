@@ -1,0 +1,77 @@
+/* Element Selector: Selects all elements of a given type */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+}
+
+header, footer {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 1.2rem;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ID Selector: Selects element with id="intro-section" */
+#intro-section {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+/* Class Selector: Selects elements with class="highlight" */
+.highlight {
+    color: #e91e63;
+}
+
+/* Attribute Selector: Selects 'a' elements with target="_blank" */
+a[target="_blank"] {
+    color: #009688;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Descendant Combinator (space): Selects 'p' inside '#intro-section' */
+#intro-section p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Child Combinator (>): Selects 'p' that are direct children of '.parent' */
+.parent > p {
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-left: 4px solid #2196f3;
+}
+
+/* Adjacent Sibling Combinator (+): Selects 'li' directly after '.special' */
+.special + li {
+    background-color: #ffe082;
+    padding-left: 15px;
+}
+
+/* General Sibling Combinator (~): Selects all 'p' that are siblings following 'h2' */
+h2 ~ p {
+    margin-top: 10px;
+}
+
+.styled-list {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+.styled-list li {
+    margin: 5px 0;
+    padding: 5px;
+}

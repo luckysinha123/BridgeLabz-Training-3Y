@@ -1,0 +1,11 @@
+/* Minimal custom CSS as requested, relying primarily on Bootstrap utilities */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Add a subtle background color */
+.bg-light {
+    background-color: #f8f9fa !important;
+}

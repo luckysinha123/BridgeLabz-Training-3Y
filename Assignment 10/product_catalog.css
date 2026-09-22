@@ -1,0 +1,10 @@
+/* Hover effects for product cards */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    /* Enhancing the Bootstrap shadow-sm to a larger shadow on hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}

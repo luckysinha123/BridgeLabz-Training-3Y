@@ -1,0 +1,60 @@
+/* Overriding Bootstrap CSS Variables on the :root element */
+:root {
+    /* Change primary color to a deep teal */
+    --bs-primary: #008080;
+    --bs-primary-rgb: 0, 128, 128;
+    
+    /* Change secondary color to a warm orange */
+    --bs-secondary: #ff7f50;
+    --bs-secondary-rgb: 255, 127, 80;
+
+    /* Base body color */
+    --bs-body-bg: #fdfdfd;
+}
+
+/* Custom font classes utilizing Google Fonts */
+.font-heading {
+    font-family: 'Merriweather', serif;
+}
+
+.font-body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Apply base font to body to override Bootstrap default if not using SCSS */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Enhancing card hover slightly */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Ensure buttons use the overridden primary color variables */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    background-color: #006666;
+    border-color: #006666;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--bs-secondary) !important;
+}

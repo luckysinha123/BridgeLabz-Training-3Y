@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="notifications_dashboard.css">
+</head>
+<body class="bg-secondary bg-opacity-10">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <h2 class="mb-4 text-dark fw-bold">Dashboard Notifications</h2>
+
+                <!-- Summary Well (using Bootstrap classes to mimic the old 'well' component) -->
+                <div class="p-4 mb-4 bg-light border rounded shadow-sm text-center">
+                    <h4 class="mb-2">Daily Summary</h4>
+                    <p class="mb-0 text-muted">You have <strong>1</strong> new message, <strong>1</strong> tip available, and <strong>1</strong> critical warning to review.</p>
+                </div>
+
+                <!-- Grouping alerts nicely inside a Card -->
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="mb-0">Recent Alerts</h5>
+                    </div>
+                    <div class="card-body">
+                        
+                        <!-- Success Alert -->
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <div>
+                                <strong>Success!</strong> Your profile has been updated successfully.
+                            </div>
+                        </div>
+
+                        <!-- Info Alert -->
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <div>
+                                <strong>Tip:</strong> Try using the new dark mode feature in settings.
+                            </div>
+                        </div>
+
+                        <!-- Danger Alert -->
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <div>
+                                <strong>Warning!</strong> Your subscription is expiring in 2 days. Please renew to avoid interruption.
+                            </div>
+                        </div>
+
+                        <!-- Dismissible Alert -->
+                        <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+                            <strong>Maintenance Notice:</strong> Server maintenance scheduled for tonight at 2 AM.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (required for dismissible alerts) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

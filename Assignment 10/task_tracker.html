@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="task_tracker.css">
+</head>
+<body class="bg-light">
+    
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                
+                <div class="card shadow border-0">
+                    <!-- Header with Badge Counter -->
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+                        <h4 class="mb-0">Task Tracker</h4>
+                        <span class="badge bg-light text-primary rounded-pill fs-6">3 Pending</span>
+                    </div>
+                    
+                    <div class="card-body p-0">
+                        <!-- List Group for Tasks -->
+                        <ul class="list-group list-group-flush">
+                            <!-- High Priority Task -->
+                            <li class="list-group-item d-flex justify-content-between align-items-start p-3">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Fix server crash issue</div>
+                                    Investigate and resolve the database timeout errors.
+                                </div>
+                                <span class="badge bg-danger rounded-pill mt-1">High</span>
+                            </li>
+                            
+                            <!-- Medium Priority Task -->
+                            <li class="list-group-item d-flex justify-content-between align-items-start p-3">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Update user documentation</div>
+                                    Add new API endpoints to the docs.
+                                </div>
+                                <span class="badge bg-warning text-dark rounded-pill mt-1">Medium</span>
+                            </li>
+                            
+                            <!-- Low Priority Task -->
+                            <li class="list-group-item d-flex justify-content-between align-items-start p-3">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Design new logo variations</div>
+                                    Create monochrome versions for the new branding.
+                                </div>
+                                <span class="badge bg-info text-dark rounded-pill mt-1">Low</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Footer with button containing embedded badge -->
+                    <div class="card-footer bg-white text-center py-4 border-0">
+                        <button type="button" class="btn btn-outline-success position-relative px-4">
+                            View Completed Tasks
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                12
+                                <span class="visually-hidden">completed tasks</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

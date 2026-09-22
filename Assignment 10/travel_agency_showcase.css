@@ -1,0 +1,15 @@
+/* Ensure images cover the carousel space beautifully */
+.carousel-img {
+    height: 60vh;
+    min-height: 400px;
+    object-fit: cover;
+}
+
+/* Subtle shadow on the caption text */
+.carousel-caption h2 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.carousel-caption p {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}

@@ -1,0 +1,13 @@
+/* Custom styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ensure the image is actually a circle and doesn't squash */
+.rounded-circle {
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+}

@@ -1,0 +1,10 @@
+/* Additional custom styles */
+body {
+    background-color: #fcfcfc;
+}
+
+/* Slightly enhance the table header */
+.table-dark th {
+    font-size: 1.1rem;
+    padding: 15px;
+}

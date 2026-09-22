@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4: Selectors Practice</title>
+    <link rel="stylesheet" href="q4_css_selectors.css">
+</head>
+<body>
+    <header>
+        <h1>CSS Selectors Practice</h1>
+    </header>
+    <main class="content">
+        <section id="intro-section">
+            <h2 class="highlight">Introduction to Selectors</h2>
+            <p>This paragraph is inside a section. We'll style it using a descendant selector.</p>
+            <p>This is a sibling paragraph.</p>
+            <a href="https://example.com" target="_blank">A link with target blank</a>
+        </section>
+
+        <section>
+            <h2>List of Items</h2>
+            <ul class="styled-list">
+                <li>Item 1</li>
+                <li>Item 2 (Sibling combinators demo)</li>
+                <li class="special">Item 3 (Special Class)</li>
+                <li>Item 4</li>
+            </ul>
+        </section>
+        
+        <div>
+            <h2>Direct Children Demo</h2>
+            <div class="parent">
+                <p>I am a direct child paragraph.</p>
+                <div>
+                    <p>I am a nested paragraph, not a direct child of .parent.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Assignment 8 - Question 4</p>
+    </footer>
+</body>
+</html>

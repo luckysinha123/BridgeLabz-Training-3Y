@@ -1,0 +1,28 @@
+body {
+    background-color: #fcfcfc;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Hover effects for pricing cards */
+.pricing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Apply strong shadow on hover */
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.175) !important; /* Overriding Bootstrap shadow-sm */
+    z-index: 2; /* Ensures hovered card stands out */
+}
+
+/* Slightly scale up the Pro card by default on larger screens to make it stand out */
+@media (min-width: 768px) {
+    .pro-card {
+        transform: scale(1.05);
+        z-index: 1;
+    }
+    
+    .pro-card:hover {
+        transform: scale(1.05) translateY(-10px);
+    }
+}
