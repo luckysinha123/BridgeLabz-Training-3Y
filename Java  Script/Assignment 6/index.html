@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6 - Asynchronous JavaScript Interactive Dashboard</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        header h1 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+            font-size: 1.25rem;
+            color: #0f172a;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .product-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .console-output {
+            background: #0f172a;
+            color: #38bdf8;
+            font-family: "Consolas", monospace;
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 12px;
+            min-height: 80px;
+            white-space: pre-wrap;
+            font-size: 0.85rem;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Assignment 6: Asynchronous Programming Dashboard</h1>
+        <p>Promises, async/await, Microtasks vs Macrotasks, Combinators & Event Loop</p>
+    </header>
+
+    <!-- SECTION: Q6 BONUS PRODUCT CARD FETCHER -->
+    <section class="card" id="q6-section">
+        <h2>Q 6: E-Commerce Dashboard: Product Card Fetcher (Bonus HTML Cards)</h2>
+        <p>Fetches real product data from <code>https://fakestoreapi.com/products</code> and renders dynamic cards using <code>document.createElement()</code>.</p>
+        <button id="fetchProductsBtn">Load Fake Store Products</button>
+        <span id="q6Status" style="font-weight: 600; margin-left: 10px;"></span>
+        <div id="productCardsContainer" class="product-grid"></div>
+    </section>
+
+    <!-- SECTION: Q1 ASYNC COFFEE MAKER -->
+    <section class="card">
+        <h2>Q 1: The Startup Morning: Async Coffee Maker</h2>
+        <p>Boils water &rarr; brews coffee &rarr; pours into mug with Promise chaining.</p>
+        <button id="runCoffeeBtn">Brew Coffee</button>
+        <div id="coffeeOutput" class="console-output">Ready to brew...</div>
+    </section>
+
+    <!-- SECTION: Q10 FOOD DELIVERY PIPELINE -->
+    <section class="card">
+        <h2>Q 10: Food Delivery Simulation Pipeline</h2>
+        <p>takeOrder &rarr; prepare &rarr; pack &rarr; dispatch &rarr; deliver with async/await and error handling.</p>
+        <button id="runDeliveryBtn">Start Delivery Pipeline</button>
+        <div id="deliveryOutput" class="console-output">Waiting for order trigger...</div>
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="Q6_Product_Card_Fetcher.js"></script>
+<script>
+    // Q6 Button handler
+    document.getElementById("fetchProductsBtn").addEventListener("click", () => {
+        const statusEl = document.getElementById("q6Status");
+        statusEl.textContent = "Fetching products from API...";
+        statusEl.style.color = "#2563eb";
+        fetchAndDisplayProducts().then(res => {
+            if (res) {
+                statusEl.textContent = `✔ Loaded ${res.length} products successfully!`;
+                statusEl.style.color = "#16a34a";
+            } else {
+                statusEl.textContent = "✖ Failed to load products. (Check console)";
+                statusEl.style.color = "#dc2626";
+            }
+        });
+    });
+
+    // Helper to pipe console logs to HTML box
+    function createLogPipe(boxId) {
+        const box = document.getElementById(boxId);
+        return function(msg) {
+            box.textContent += msg + "\n";
+            box.scrollTop = box.scrollHeight;
+        };
+    }
+
+    // Q1 Interactive Trigger
+    document.getElementById("runCoffeeBtn").addEventListener("click", () => {
+        const box = document.getElementById("coffeeOutput");
+        box.textContent = "Starting coffee maker...\n";
+        const log = (msg) => { box.textContent += msg + "\n"; };
+
+        log("[Step 1] Heating kettle...");
+        setTimeout(() => {
+            log("  ✔ Water boiled to 95°C.");
+            log("[Step 2] Infusing roasted Arabica grounds...");
+            setTimeout(() => {
+                log("  ✔ Rich espresso brewed.");
+                log("[Step 3] Pouring into team mugs...");
+                setTimeout(() => {
+                    log("  ✔ Coffee poured into cups.");
+                    log("\n🎉 SUCCESS: \"Coffee ready for the team!\"");
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    });
+
+    // Q10 Interactive Trigger
+    document.getElementById("runDeliveryBtn").addEventListener("click", () => {
+        const box = document.getElementById("deliveryOutput");
+        box.textContent = "Start Pipeline\n";
+        const log = (msg) => { box.textContent += msg + "\n"; };
+
+        setTimeout(() => {
+            log("Step 1: Order taken");
+            setTimeout(() => {
+                log("Step 2: Food prepared");
+                setTimeout(() => {
+                    log("Step 3: Package ready");
+                    setTimeout(() => {
+                        log("Step 4: Out for delivery");
+                        setTimeout(() => {
+                            log("Delivery completed!\n✔ Order successfully reached customer doorstep!");
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
