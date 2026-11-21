@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9 - Multi-jQuery Widgets (noConflict)</title>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .version-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .v-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .v1-badge { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+        .v2-badge { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
+        .widget-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        /* Version 1 active highlight (Requirement 3) */
+        .widget-card.active-widget {
+            border-color: #0284c7 !important;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25) !important;
+            background-color: #f0f9ff !important;
+        }
+
+        /* Carousel styles */
+        .carousel-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            min-height: 100px;
+        }
+        .carousel-slide {
+            display: none;
+        }
+        .carousel-slide.active-slide {
+            display: block;
+        }
+
+        /* Tooltip styles (Version 2) */
+        .tooltip-target {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .custom-tooltip-popup {
+            position: absolute;
+            background: #1e293b;
+            color: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+
+        /* Modal styles (Version 2) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-box {
+            background: white;
+            border-radius: 10px;
+            padding: 24px;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+        button.btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- 1. LOAD JQUERY VERSION 1 (jQuery 3.7.1) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        // Relinquish jQuery 3.7.1 to $jqV1
+        var $jqV1 = jQuery.noConflict(true);
+    </script>
+
+    <!-- 2. LOAD JQUERY VERSION 2 (jQuery 2.2.4) -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        // Relinquish jQuery 2.2.4 to $jqV2
+        var $jqV2 = jQuery.noConflict(true);
+    </script>
+</head>
+<body>
+
+<main class="container">
+    <header>
+        <span style="background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">Assignment 9 - Q9</span>
+        <h1 style="color: #075985; margin-top: 8px;">Multi-jQuery Widgets via noConflict()</h1>
+        <p>Proving simultaneous execution of two distinct jQuery instances managing independent UI components.</p>
+    </header>
+
+    <!-- Version Indicators -->
+    <div class="version-badges">
+        <span class="v-badge v1-badge" id="v1Badge">jQuery v1: Loading...</span>
+        <span class="v-badge v2-badge" id="v2Badge">jQuery v2: Loading...</span>
+    </div>
+
+    <!-- WIDGET 1: Managed by jQuery Version 1 -->
+    <section class="widget-card" id="widgetV1">
+        <span class="v-badge v1-badge" style="position: absolute; top: 16px; right: 16px;">Powered by Version 1</span>
+        <h2 style="margin-top: 0; color: #1e40af;">Widget A: Carousel Slider & Active Highlight</h2>
+        <p style="color: #64748b; font-size: 0.9rem;">Version 1 rotates the slide below and highlights this active widget on click.</p>
+
+        <!-- Carousel -->
+        <div class="carousel-box" id="carouselWidget">
+            <div class="carousel-slide active-slide">
+                <h3>Slide 1: High-Performance Architecture</h3>
+                <p>Scaling microservices with Node.js and Redis caching layers.</p>
+            </div>
+            <div class="carousel-slide">
+                <h3>Slide 2: Reactive State Management</h3>
+                <p>Comparing Redux, Zustand, and React Signals in enterprise apps.</p>
+            </div>
+            <div class="carousel-slide">
+                <h3>Slide 3: Modern DevOps Pipelines</h3>
+                <p>Continuous Integration with GitHub Actions and Docker containers.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 14px; display: flex; gap: 10px;">
+            <button id="btnPrevSlide" class="btn" style="background: #1e40af;">&larr; Prev Slide (v1)</button>
+            <button id="btnNextSlide" class="btn" style="background: #1e40af;">Next Slide (v1) &rarr;</button>
+            <button id="btnHighlightV1" class="btn" style="background: #0284c7;">Highlight Widget A (v1)</button>
+        </div>
+    </section>
+
+    <!-- WIDGET 2: Managed by jQuery Version 2 -->
+    <section class="widget-card" id="widgetV2">
+        <span class="v-badge v2-badge" style="position: absolute; top: 16px; right: 16px;">Powered by Version 2</span>
+        <h2 style="margin-top: 0; color: #92400e;">Widget B: Modal Notifications & Tooltips</h2>
+        <p style="color: #64748b; font-size: 0.9rem;">Version 2 manages custom tooltip popups on hover and triggers notification modals.</p>
+
+        <!-- Tooltip Elements (Requirement 4) -->
+        <div style="margin-bottom: 16px;">
+            <p style="font-weight: 600; margin-bottom: 8px;">Hover over tags for Version 2 Tooltips:</p>
+            <span class="tooltip-target" data-tooltip="ES6+ JavaScript features including let, const, and promises.">JavaScript</span>
+            <span class="tooltip-target" data-tooltip="jQuery.noConflict() relinquishes the $ variable safely.">noConflict</span>
+            <span class="tooltip-target" data-tooltip="Event delegation binds listeners to ancestors.">DOM Events</span>
+            <span class="tooltip-target" data-tooltip="CSS Grid provides two-dimensional layout controls.">CSS Grid</span>
+            <span class="tooltip-target" data-tooltip="Asynchronous programming with async/await.">Async/Await</span>
+        </div>
+
+        <!-- Modal Trigger (Requirement 2) -->
+        <button id="btnOpenModalV2" class="btn" style="background: #d97706;">Open Notification Modal (v2)</button>
+    </section>
+
+    <!-- Modal Popup Box (Version 2) -->
+    <div id="v2NotificationModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3 style="margin-top: 0; color: #92400e;">📢 Notification Alert (Powered by jQuery v2)</h3>
+            <p>This modal dialog is controlled strictly by <code>$jqV2</code> using <code>jQuery.noConflict(true)</code>.</p>
+            <p style="background: #fef3c7; padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+                Both jQuery engines run simultaneously without conflicting global variables!
+            </p>
+            <button id="btnCloseModalV2" class="btn" style="background: #475569;">Dismiss Notification</button>
+        </div>
+    </div>
+</main>
+
+<script src="q9_multi_jquery_widgets.js"></script>
+</body>
+</html>

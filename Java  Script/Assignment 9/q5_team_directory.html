@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5 - Team Members Directory</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        :root {
+            --primary: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .dept-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+        }
+        .dept-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 14px;
+            background: #eef2ff;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            border-left: 5px solid var(--primary);
+        }
+        .dept-header h2 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: #312e81;
+        }
+        .team-members-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .member-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            background: #ffffff;
+            transition: all 0.2s ease;
+        }
+        .manager-role {
+            font-weight: bold;
+            color: #4338ca;
+            cursor: pointer;
+            padding: 4px 8px;
+            background: #e0e7ff;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .contact-info {
+            display: none; /* Revealed on hover via .next() */
+            background: #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+        .highlight-report {
+            background-color: #fef08a !important; /* Yellow */
+            border-color: #eab308 !important;
+        }
+        .highlight-sibling {
+            background-color: #dbeafe !important; /* Blue */
+            border-color: #3b82f6 !important;
+        }
+        .dept-highlighted {
+            background-color: #ecfdf5 !important; /* Green */
+        }
+        button.btn-collapse {
+            background: #4338ca;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <header>
+        <span style="background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">Assignment 9 - Q5</span>
+        <h1 style="color: #312e81; margin-top: 8px;">Hierarchical Team Directory</h1>
+        <p>Demonstrating jQuery DOM traversal: <code>.next()</code>, <code>.children()</code>, <code>.siblings()</code>, <code>.parent()</code>, and <code>.find()</code>.</p>
+    </header>
+
+    <!-- Department 1: Engineering -->
+    <section class="dept-card" id="dept-engineering">
+        <div class="dept-header">
+            <h2>💻 Engineering Department (Click to highlight members using .children())</h2>
+            <button class="btn-collapse">Collapse Team</button>
+        </div>
+
+        <ul class="team-members-list">
+            <!-- Manager -->
+            <li class="member-item manager-item" data-manager-for="eng">
+                <div class="member-header">
+                    <span class="manager-role">👑 Manager: Sarah Connor</span> - VP of Engineering (Click to highlight reports)
+                </div>
+                <div class="contact-info">📧 sarah@techcorp.io | 📱 +91 98765-43210</div>
+            </li>
+
+            <!-- Reports -->
+            <li class="member-item report-item" data-team="eng">
+                <div class="member-name">👤 Alex Johnson - Lead Architect (Click to highlight siblings)</div>
+                <div class="contact-info">📧 alex.j@techcorp.io | 📍 Desk A-12</div>
+            </li>
+            <li class="member-item report-item" data-team="eng">
+                <div class="member-name">👤 David Miller - Frontend Specialist (Click to highlight siblings)</div>
+                <div class="contact-info">📧 david.m@techcorp.io | 📍 Desk A-14</div>
+            </li>
+            <li class="member-item report-item" data-team="eng">
+                <div class="member-name">👤 Elena Rostova - Backend Systems Engineer (Click to highlight siblings)</div>
+                <div class="contact-info">📧 elena.r@techcorp.io | 📍 Desk A-15</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Department 2: Design & Product -->
+    <section class="dept-card" id="dept-design">
+        <div class="dept-header">
+            <h2>🎨 Product & UI/UX Design (Click to highlight members using .children())</h2>
+            <button class="btn-collapse">Collapse Team</button>
+        </div>
+
+        <ul class="team-members-list">
+            <!-- Manager -->
+            <li class="member-item manager-item" data-manager-for="design">
+                <div class="member-header">
+                    <span class="manager-role">👑 Manager: Marcus Vance</span> - Head of Product Design (Click to highlight reports)
+                </div>
+                <div class="contact-info">📧 marcus.v@techcorp.io | 📱 +91 98765-99887</div>
+            </li>
+
+            <!-- Reports -->
+            <li class="member-item report-item" data-team="design">
+                <div class="member-name">👤 Chloe Price - Senior UI Designer (Click to highlight siblings)</div>
+                <div class="contact-info">📧 chloe.p@techcorp.io | 📍 Studio B-04</div>
+            </li>
+            <li class="member-item report-item" data-team="design">
+                <div class="member-name">👤 Nathan Drake - UX Researcher (Click to highlight siblings)</div>
+                <div class="contact-info">📧 nathan.d@techcorp.io | 📍 Studio B-05</div>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<script src="q5_team_directory.js"></script>
+</body>
+</html>

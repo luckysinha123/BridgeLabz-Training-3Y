@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8 - Dynamic Blog Posts Admin Panel</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .admin-controls {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+        }
+        .btn-toolbar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        button {
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+        .filter-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .filter-box input {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            flex: 1;
+        }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .blog-post-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            transition: all 0.2s;
+            position: relative;
+        }
+        .blog-post-card.featured {
+            border-left: 6px solid #f59e0b;
+            background: #fffbeb;
+        }
+        .blog-post-card.keyword-highlight {
+            background-color: #fef08a !important; /* Soft yellow highlight */
+            border-color: #eab308 !important;
+            transform: scale(1.01);
+        }
+        .post-tag-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 6px;
+            margin-top: 8px;
+        }
+        .post-header-tag {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <header>
+        <span style="background: #dbeafe; color: #1d4ed8; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">Assignment 9 - Q8</span>
+        <h1 style="color: #1e40af; margin-top: 8px;">Dynamic Blog Posts Admin Panel</h1>
+        <p>Demonstrating jQuery DOM manipulation: <code>.append()</code>, <code>.prepend()</code>, <code>.remove()</code>, <code>.before()</code>, <code>.after()</code>, and <code>:contains()</code> keyword highlighting.</p>
+    </header>
+
+    <!-- Admin Toolbar -->
+    <section class="admin-controls">
+        <div class="btn-toolbar">
+            <button id="btnAppendPost" style="background: #2563eb;">1. + Add New Post (.append)</button>
+            <button id="btnPrependPost" style="background: #f59e0b;">2. ⭐ Prepend Featured Post (.prepend)</button>
+            <button id="btnRemoveLast" style="background: #ef4444;">3. 🗑️ Remove Last Post (.remove)</button>
+            <button id="btnAddTags" style="background: #10b981;">4. 🏷️ Add Tags (.before/.after)</button>
+        </div>
+
+        <!-- Keyword Highlighter -->
+        <div class="filter-box">
+            <label for="keywordInput" style="font-weight: 600; font-size: 0.9rem;">5. Highlight Keyword:</label>
+            <input type="text" id="keywordInput" placeholder="Type keyword to highlight (e.g. JavaScript, Architecture, CSS)..." />
+            <button id="btnClearKeyword" style="background: #64748b; padding: 8px 14px;">Reset Highlight</button>
+        </div>
+    </section>
+
+    <!-- Blog Posts Container (At least 5 initial posts) -->
+    <section>
+        <div id="blogContainer" class="blog-list">
+            <!-- Post 1 -->
+            <article class="blog-post-card">
+                <h3 class="post-title">Building Scalable Web Architecture with Node.js</h3>
+                <p class="post-body">Learn how to decouple services, manage worker threads, and deploy horizontal clusters using Docker.</p>
+                <div class="post-footer"><small style="color: #64748b;">Published 2 days ago</small></div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-post-card">
+                <h3 class="post-title">Deep Dive into Modern JavaScript Closures</h3>
+                <p class="post-body">Understanding how lexical environments persist in heap memory and avoid common memory leaks in JavaScript.</p>
+                <div class="post-footer"><small style="color: #64748b;">Published 4 days ago</small></div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-post-card">
+                <h3 class="post-title">Mastering CSS Grid and Flexbox Layouts</h3>
+                <p class="post-body">A comprehensive visual guide to responsive web design, fluid typography, and modern CSS layout properties.</p>
+                <div class="post-footer"><small style="color: #64748b;">Published 1 week ago</small></div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="blog-post-card">
+                <h3 class="post-title">REST vs GraphQL: Choosing the Right API Style</h3>
+                <p class="post-body">Explore trade-offs in over-fetching, caching layers, schema stitching, and network payloads in production architecture.</p>
+                <div class="post-footer"><small style="color: #64748b;">Published 2 weeks ago</small></div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="blog-post-card">
+                <h3 class="post-title">Automating Front-End Testing with Playwright</h3>
+                <p class="post-body">Step-by-step tutorial on writing reliable end-to-end tests for modern single-page JavaScript applications.</p>
+                <div class="post-footer"><small style="color: #64748b;">Published 3 weeks ago</small></div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<script src="q8_dynamic_blog_posts.js"></script>
+</body>
+</html>

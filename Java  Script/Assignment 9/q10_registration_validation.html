@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q10 - Registration Form Validation</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #cbd5e1;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 550px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+        }
+        header h1 {
+            color: var(--primary);
+            margin-top: 8px;
+            font-size: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .error-feedback {
+            color: #dc2626;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 4px;
+            display: none;
+        }
+        .success-banner {
+            display: none;
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        button.btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button.btn-submit:hover {
+            background: var(--primary-hover);
+        }
+        .mock-db-info {
+            background: #f1f5f9;
+            border: 1px dashed #94a3b8;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <header>
+        <span style="background: #dbeafe; color: #1d4ed8; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">Assignment 9 - Q10</span>
+        <h1>User Registration Form</h1>
+        <p style="color: #64748b; font-size: 0.9rem;">Client-side validation with dynamic jQuery <code>.css()</code> border highlights, email uniqueness verification, and success alert.</p>
+    </header>
+
+    <!-- Mock Database Note -->
+    <div class="mock-db-info">
+        <strong>Registered Emails Database (Uniqueness Test):</strong><br>
+        <code>alice@example.com</code>, <code>john.doe@company.org</code>, <code>admin@techpulse.io</code><br>
+        <em>(Submitting any of these will trigger an "Email already registered" error)</em>
+    </div>
+
+    <form id="registrationForm" novalidate>
+        <!-- Name Field -->
+        <div class="form-group">
+            <label for="regName">Full Name *</label>
+            <input type="text" id="regName" placeholder="Enter your full name" />
+            <div class="error-feedback" id="nameError">Please enter your name.</div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+            <label for="regEmail">Email Address *</label>
+            <input type="email" id="regEmail" placeholder="e.g. user@domain.com" />
+            <div class="error-feedback" id="emailError">Please enter a valid email address.</div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+            <label for="regPassword">Password (Minimum 8 characters) *</label>
+            <input type="password" id="regPassword" placeholder="Minimum 8 characters" />
+            <div class="error-feedback" id="passwordError">Password must be at least 8 characters long.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Register Account</button>
+    </form>
+
+    <!-- Success Message Container (Requirement 4) -->
+    <div class="success-banner" id="registrationSuccess">
+        🎉 Registration Successful!<br>
+        <span style="font-size: 0.85rem; font-weight: normal;">Your account has been created and verified. Welcome aboard!</span>
+    </div>
+</main>
+
+<script src="q10_registration_validation.js"></script>
+</body>
+</html>

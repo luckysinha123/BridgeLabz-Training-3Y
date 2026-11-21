@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9 - jQuery Applications Hub</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 32px 24px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 36px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--border);
+        }
+        header h1 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 2.2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .card-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .card h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+        .card a.btn-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background 0.2s;
+        }
+        .card a.btn-link:hover {
+            background: var(--primary-hover);
+        }
+        .tag-list {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Assignment 9: jQuery Master Suite</h1>
+        <p>Interactive web applications demonstrating DOM manipulation, effects, traversing, and event handling with jQuery.</p>
+    </header>
+
+    <main class="grid">
+        <!-- Q1 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 1</div>
+                <h2>Welcome Page Greeting</h2>
+                <p>Personalized time-based greeting, motivational quote rotator, visibility toggles, and click alert.</p>
+                <div class="tag-list">
+                    <span class="tag">.text()</span>
+                    <span class="tag">.fadeOut()</span>
+                    <span class="tag">.slideToggle()</span>
+                </div>
+            </div>
+            <a href="q1_welcome_page.html" class="btn-link">Open Q1 Demo &rarr;</a>
+        </article>
+
+        <!-- Q2 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 2</div>
+                <h2>Product Highlight</h2>
+                <p>Click highlights, hover detail reveals, favorite toggle, attribute selector discount styles, and out-of-stock data alert.</p>
+                <div class="tag-list">
+                    <span class="tag">.hover()</span>
+                    <span class="tag">.toggleClass()</span>
+                    <span class="tag">[data-discount]</span>
+                </div>
+            </div>
+            <a href="q2_product_highlight.html" class="btn-link">Open Q2 Demo &rarr;</a>
+        </article>
+
+        <!-- Q3 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 3</div>
+                <h2>Interactive FAQ</h2>
+                <p>Accordion toggle, hover color shifts, double-click collapse all, and input focus/blur parent highlighting.</p>
+                <div class="tag-list">
+                    <span class="tag">.slideToggle()</span>
+                    <span class="tag">.dblclick()</span>
+                    <span class="tag">.closest()</span>
+                </div>
+            </div>
+            <a href="q3_interactive_faq.html" class="btn-link">Open Q3 Demo &rarr;</a>
+        </article>
+
+        <!-- Q4 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 4</div>
+                <h2>Special Offer Banner</h2>
+                <p>Slide up/down, fade in/out transitions, show/hide, and 5-second automated rotating banner carousel.</p>
+                <div class="tag-list">
+                    <span class="tag">.fadeIn()</span>
+                    <span class="tag">.fadeOut()</span>
+                    <span class="tag">setInterval</span>
+                </div>
+            </div>
+            <a href="q4_special_offer_banner.html" class="btn-link">Open Q4 Demo &rarr;</a>
+        </article>
+
+        <!-- Q5 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 5</div>
+                <h2>Team Members Directory</h2>
+                <p>Manager report highlights, hover contact details via .next(), department highlights via .children(), and team collapse via .parent() and .find().</p>
+                <div class="tag-list">
+                    <span class="tag">.next()</span>
+                    <span class="tag">.children()</span>
+                    <span class="tag">.siblings()</span>
+                </div>
+            </div>
+            <a href="q5_team_directory.html" class="btn-link">Open Q5 Demo &rarr;</a>
+        </article>
+
+        <!-- Q6 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 6</div>
+                <h2>Event Subscription Panel</h2>
+                <p>Subscribe/unsubscribe state toggles, dynamic topic addition with .on(), detachment with .off(), and dynamic alert notifications.</p>
+                <div class="tag-list">
+                    <span class="tag">.on()</span>
+                    <span class="tag">.off()</span>
+                    <span class="tag">.append()</span>
+                </div>
+            </div>
+            <a href="q6_event_subscription.html" class="btn-link">Open Q6 Demo &rarr;</a>
+        </article>
+
+        <!-- Q7 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 7</div>
+                <h2>Search Courses</h2>
+                <p>Real-time course filtering using .keyup(), dynamic text highlighting with .css(), visibility toggling, and live match counters.</p>
+                <div class="tag-list">
+                    <span class="tag">.keyup()</span>
+                    <span class="tag">.css()</span>
+                    <span class="tag">.show()/.hide()</span>
+                </div>
+            </div>
+            <a href="q7_search_courses.html" class="btn-link">Open Q7 Demo &rarr;</a>
+        </article>
+
+        <!-- Q8 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 8</div>
+                <h2>Dynamic Blog Posts</h2>
+                <p>Append new posts, prepend featured announcements, remove last post, insert tags with .before()/.after(), and highlight keywords using :contains().</p>
+                <div class="tag-list">
+                    <span class="tag">.prepend()</span>
+                    <span class="tag">.before()/.after()</span>
+                    <span class="tag">:contains()</span>
+                </div>
+            </div>
+            <a href="q8_dynamic_blog_posts.html" class="btn-link">Open Q8 Demo &rarr;</a>
+        </article>
+
+        <!-- Q9 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 9</div>
+                <h2>Multi-jQuery Widgets (noConflict)</h2>
+                <p>Dual jQuery versions (3.7.1 & 2.2.4) running simultaneously: version 1 controls carousel & active widget; version 2 controls modals & tooltips.</p>
+                <div class="tag-list">
+                    <span class="tag">jQuery.noConflict(true)</span>
+                    <span class="tag">Multi-Version</span>
+                </div>
+            </div>
+            <a href="q9_multi_jquery_widgets.html" class="btn-link">Open Q9 Demo &rarr;</a>
+        </article>
+
+        <!-- Q10 -->
+        <article class="card">
+            <div>
+                <div class="card-number">Question 10</div>
+                <h2>Registration Form Validation</h2>
+                <p>Client-side validation checking name, email format & uniqueness against database, password minimum length, dynamic red borders, and success banner.</p>
+                <div class="tag-list">
+                    <span class="tag">.submit()</span>
+                    <span class="tag">.css()</span>
+                    <span class="tag">Validation</span>
+                </div>
+            </div>
+            <a href="q10_registration_validation.html" class="btn-link">Open Q10 Demo &rarr;</a>
+        </article>
+    </main>
+</div>
+
+</body>
+</html>

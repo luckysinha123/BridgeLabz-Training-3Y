@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3 - Interactive FAQ Section</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+        }
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .faq-question {
+            background: #f1f5f9;
+            padding: 16px 20px;
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s, color 0.2s;
+        }
+        .faq-answer {
+            display: none; /* Collapsed by default */
+            padding: 18px 20px;
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+            line-height: 1.6;
+        }
+        .feedback-input-box {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed #cbd5e1;
+        }
+        .feedback-input-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+        /* Highlight parent question when feedback input is focused */
+        .focused-parent {
+            background-color: #bae6fd !important; /* Soft blue */
+            color: #0369a1 !important;
+        }
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <header>
+        <span class="badge">Assignment 9 - Q3</span>
+        <h1 style="color: #0369a1; margin-top: 8px;">Interactive FAQ Section (5 Questions)</h1>
+        <p>Click question to toggle answer, hover to color, <strong>double-click question to collapse all</strong>, and focus/blur input to highlight parent.</p>
+    </header>
+
+    <section class="faq-list">
+        <!-- Question 1 -->
+        <article class="faq-item">
+            <h3 class="faq-question">1. What prerequisites are required for this Full Stack program? <span class="arrow">&#9662;</span></h3>
+            <div class="faq-answer">
+                <p>Basic knowledge of computers and logical problem-solving. No advanced coding background is required as we begin from basic JavaScript fundamentals.</p>
+                <div class="feedback-input-box">
+                    <label style="font-size: 0.8rem; font-weight: bold;">Have feedback on this answer? (Focus here to test Requirement 4):</label>
+                    <input type="text" class="feedback-input" placeholder="Type clarification query..." />
+                </div>
+            </div>
+        </article>
+
+        <!-- Question 2 -->
+        <article class="faq-item">
+            <h3 class="faq-question">2. How does the JavaScript Event Loop work? <span class="arrow">&#9662;</span></h3>
+            <div class="faq-answer">
+                <p>The Event Loop coordinates the Call Stack, Microtask Queue (Promises), and Macrotask Queue (setTimeout). Microtasks are always drained before macrotasks.</p>
+                <div class="feedback-input-box">
+                    <label style="font-size: 0.8rem; font-weight: bold;">Have feedback on this answer? (Focus here to test Requirement 4):</label>
+                    <input type="text" class="feedback-input" placeholder="Type clarification query..." />
+                </div>
+            </div>
+        </article>
+
+        <!-- Question 3 -->
+        <article class="faq-item">
+            <h3 class="faq-question">3. What is the difference between let, const, and var? <span class="arrow">&#9662;</span></h3>
+            <div class="faq-answer">
+                <p><code>var</code> is function-scoped and hoisted with undefined. <code>let</code> and <code>const</code> are block-scoped and live in the Temporal Dead Zone until initialized.</p>
+                <div class="feedback-input-box">
+                    <label style="font-size: 0.8rem; font-weight: bold;">Have feedback on this answer? (Focus here to test Requirement 4):</label>
+                    <input type="text" class="feedback-input" placeholder="Type clarification query..." />
+                </div>
+            </div>
+        </article>
+
+        <!-- Question 4 -->
+        <article class="faq-item">
+            <h3 class="faq-question">4. Why should we use jQuery event delegation? <span class="arrow">&#9662;</span></h3>
+            <div class="faq-answer">
+                <p>Event delegation attaches a single event handler to a parent element rather than attaching hundreds to child elements, enhancing memory performance and supporting dynamically created elements.</p>
+                <div class="feedback-input-box">
+                    <label style="font-size: 0.8rem; font-weight: bold;">Have feedback on this answer? (Focus here to test Requirement 4):</label>
+                    <input type="text" class="feedback-input" placeholder="Type clarification query..." />
+                </div>
+            </div>
+        </article>
+
+        <!-- Question 5 -->
+        <article class="faq-item">
+            <h3 class="faq-question">5. Will I receive a course completion certificate? <span class="arrow">&#9662;</span></h3>
+            <div class="faq-answer">
+                <p>Yes! Upon submitting all 10 module assignments and successfully passing the final full-stack project review, an accredited certificate is awarded.</p>
+                <div class="feedback-input-box">
+                    <label style="font-size: 0.8rem; font-weight: bold;">Have feedback on this answer? (Focus here to test Requirement 4):</label>
+                    <input type="text" class="feedback-input" placeholder="Type clarification query..." />
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+
+<script src="q3_interactive_faq.js"></script>
+</body>
+</html>
