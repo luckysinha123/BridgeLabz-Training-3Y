@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4 - Core JavaScript Interactive Test Dashboard</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 24px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        header h1 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+            font-size: 1.25rem;
+            color: #0f172a;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .error-message {
+            font-size: 0.85rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        .status-box {
+            margin-top: 16px;
+            font-size: 0.95rem;
+        }
+
+        pre {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Assignment 4 Interactive Test Dashboard</h1>
+        <p>Forms, Regular Expressions, Classes, and Dynamic DOM Manipulation</p>
+    </header>
+
+    <!-- QUESTION 2: STUDENT REGISTRATION FORM VALIDATOR -->
+    <section class="card" id="q2-section">
+        <h2>Q 2: Student Form Validator (Forms + RegExp)</h2>
+        <p>Real-time RegExp validation: <strong>Red border</strong> if invalid, <strong>Green border</strong> if valid.</p>
+        <form id="studentRegistrationForm" novalidate>
+            <div class="form-group">
+                <label for="name">Full Name (Alphabets only):</label>
+                <input type="text" id="name" placeholder="e.g. Rohit Sharma">
+                <div id="nameError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address (example@domain.com):</label>
+                <input type="email" id="email" placeholder="e.g. student@college.edu">
+                <div id="emailError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number (Exactly 10 digits):</label>
+                <input type="tel" id="phone" placeholder="e.g. 9876543210">
+                <div id="phoneError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password (1 uppercase, 1 number, 1 special character):</label>
+                <input type="password" id="password" placeholder="e.g. Secure@123">
+                <div id="passwordError" class="error-message"></div>
+            </div>
+            <button type="submit">Submit Registration</button>
+            <div id="formStatus" class="status-box"></div>
+        </form>
+    </section>
+
+    <!-- QUESTION 4: CUSTOM DYNAMIC FORM BUILDER -->
+    <section class="card" id="q4-section">
+        <h2>Q 4: Custom Form Builder (Dynamic innerHTML)</h2>
+        <p>Demonstrates dynamic form generation via <code>FormBuilder</code> class and value extraction using <code>getFormData()</code>.</p>
+        <div id="dynamicFormContainer"></div>
+    </section>
+
+    <!-- QUESTION 5: MOVIE TICKET BOOKING -->
+    <section class="card" id="q5-section">
+        <h2>Q 5: Movie Ticket Booking (Objects + RegExp)</h2>
+        <p>Validates name, email, and seats (1-10) before generating ticket booking object.</p>
+        <form id="movieBookingForm" novalidate>
+            <div class="form-group">
+                <label for="movieSelect">Select Movie:</label>
+                <select id="movieSelect">
+                    <option value="Inception (IMAX)">Inception (IMAX)</option>
+                    <option value="Interstellar">Interstellar</option>
+                    <option value="Oppenheimer">Oppenheimer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="movieCustomerName">Customer Name:</label>
+                <input type="text" id="movieCustomerName" placeholder="e.g. Alice Smith">
+            </div>
+            <div class="form-group">
+                <label for="movieCustomerEmail">Email:</label>
+                <input type="email" id="movieCustomerEmail" placeholder="e.g. alice@domain.com">
+            </div>
+            <div class="form-group">
+                <label for="movieSeats">Seats (1 to 10 only):</label>
+                <input type="number" id="movieSeats" min="1" max="10" placeholder="1-10">
+            </div>
+            <button type="submit">Book Ticket</button>
+            <div id="ticketReceipt" class="status-box"></div>
+        </form>
+    </section>
+
+    <!-- QUESTION 7: LOGIN FORM VALIDATION -->
+    <section class="card" id="q7-section">
+        <h2>Q 7: Login Form Validation using RegExp</h2>
+        <p>Username (&ge;5 chars) and Password (&ge;8 chars with upper, lower, number, and symbol).</p>
+        <form id="loginValidationForm" novalidate>
+            <div class="form-group">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" placeholder="Enter username (min 5 characters)">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" placeholder="Enter password (min 8 characters)">
+            </div>
+            <button type="submit">Login</button>
+            <div id="loginResult" class="status-box"></div>
+        </form>
+    </section>
+
+    <!-- QUESTION 8: DYNAMIC OBJECT UPDATER -->
+    <section class="card" id="q8-section">
+        <h2>Q 8: Dynamic Object Updater</h2>
+        <p>Edit values below to mutate the in-memory <code>user = { name, email, age }</code> object in real time.</p>
+        <form id="objectUpdaterForm">
+            <div class="form-group">
+                <label for="updateName">Name:</label>
+                <input type="text" id="updateName">
+            </div>
+            <div class="form-group">
+                <label for="updateEmail">Email:</label>
+                <input type="email" id="updateEmail">
+            </div>
+            <div class="form-group">
+                <label for="updateAge">Age:</label>
+                <input type="number" id="updateAge">
+            </div>
+            <button type="submit">Update Object</button>
+            <span id="updaterToast" style="display: none; color: #16a34a; font-weight: bold; margin-left: 12px;"></span>
+            <div id="userObjectOutput"></div>
+        </form>
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="Q2_Student_Form_Validator.js"></script>
+<script src="Q4_Custom_Form_Builder.js"></script>
+<script>
+    // Initialize Q4 Dynamic Form inside Browser DOM
+    const fieldsConfig = [
+        { type: "text", label: "Full Name", name: "fullName", placeholder: "e.g. John Doe", required: true },
+        { type: "email", label: "Work Email", name: "workEmail", placeholder: "john@company.com", required: true },
+        { type: "select", label: "Role", name: "role", options: ["Developer", "Designer", "Manager", "Intern"], required: true }
+    ];
+    const builder = new FormBuilder(fieldsConfig, "demoDynamicForm");
+    builder.render("#dynamicFormContainer");
+</script>
+<script src="Q5_Movie_Ticket_Booking.js"></script>
+<script src="Q7_Login_Form_Validation.js"></script>
+<script src="Q8_Dynamic_Object_Updater.js"></script>
+
+</body>
+</html>
