@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 7 - Core JavaScript DOM & Events Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light" data-theme="light">
+
+<div class="container">
+    <header>
+        <h1>Assignment 7: Core JavaScript DOM & Events</h1>
+        <p>Event Delegation, stopPropagation, Capturing Phase, Dynamic UI & Form Interceptions</p>
+    </header>
+
+    <!-- Q4: THEME SWITCHER USING SETATTRIBUTE -->
+    <section class="card" id="q4-section">
+        <h2>4. Theme Switcher Using Attribute Manipulation</h2>
+        <p>All themes applied via <code>setAttribute('class', ...)</code> and saved in <code>data-theme="..."</code>.</p>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <button id="themeBtnLight" class="btn" style="background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1;">Light Theme</button>
+            <button id="themeBtnDark" class="btn" style="background: #0f172a; color: #fff;">Dark Theme</button>
+            <button id="themeBtnBlue" class="btn" style="background: #0284c7; color: #fff;">Blue Theme</button>
+            <span id="activeThemeLabel" style="margin-left: 12px; font-weight: 600;">Current: LIGHT (data-theme="light")</span>
+        </div>
+    </section>
+
+    <!-- Q1: DYNAMIC PRODUCT LIST MANAGER WITH EVENT DELEGATION -->
+    <section class="card" id="q1-section">
+        <h2>1. Dynamic Product List Manager (Event Delegation & Auto-Save)</h2>
+        <form id="addProductForm" style="display: flex; gap: 10px; margin-bottom: 16px;">
+            <input type="text" id="newProductName" placeholder="Enter product name (e.g. 4K Monitor)" style="flex: 1;" />
+            <button type="submit" class="btn">Add Product</button>
+        </form>
+        <ul id="productListUL" style="list-style: none; padding: 0; margin: 0; border: 1px solid var(--border-color); border-radius: 6px;"></ul>
+        <small style="color: #64748b; margin-top: 8px; display: block;">💡 Note: Click Edit to edit inline; click anywhere outside to auto-save.</small>
+    </section>
+
+    <!-- Q2: LIVE CHARACTER COUNTER -->
+    <section class="card" id="q2-section">
+        <h2>2. Live Character Counter with Warning Behavior</h2>
+        <p>Max 100 characters. Turns yellow at &le;20, turns red at 0 and blocks typing via <code>preventDefault()</code>.</p>
+        <textarea id="liveCounterTextarea" rows="4" placeholder="Type your text here (max 100 characters)..."></textarea>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <span id="counterBadge" style="padding: 6px 14px; border-radius: 20px; font-weight: bold; border: 1px solid;">
+                Remaining: <span id="remainingCharsCount">100</span> / 100
+            </span>
+            <button id="resetCounterBtn" class="btn" style="background: #64748b;">Reset</button>
+        </div>
+    </section>
+
+    <!-- Q3: MULTI-STEP FORM -->
+    <section class="card" id="q3-section">
+        <h2>3. Multi-Step Form with Next/Back & Validation</h2>
+        <!-- Step 1 -->
+        <div id="wizardStep1">
+            <h3>Step 1 of 3: Personal Information</h3>
+            <div class="form-group">
+                <label for="wizardName">Full Name:</label>
+                <input type="text" id="wizardName" placeholder="e.g. Rohit Sharma" />
+                <div id="wizardError1" class="error-msg"></div>
+            </div>
+            <button id="wizardNext1" class="btn">Next &rarr;</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="wizardStep2" style="display: none;">
+            <h3>Step 2 of 3: Contact Details</h3>
+            <div class="form-group">
+                <label for="wizardEmail">Email Address:</label>
+                <input type="email" id="wizardEmail" placeholder="e.g. rohit@domain.com" />
+                <div id="wizardError2" class="error-msg"></div>
+            </div>
+            <button id="wizardBack2" class="btn" style="background: #64748b;">&larr; Back</button>
+            <button id="wizardNext2" class="btn">Next &rarr;</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="wizardStep3" style="display: none;">
+            <h3>Step 3 of 3: Account Security</h3>
+            <div class="form-group">
+                <label for="wizardPassword">Password (min 6 chars):</label>
+                <input type="password" id="wizardPassword" placeholder="Enter password..." />
+                <div id="wizardError3" class="error-msg"></div>
+            </div>
+            <button id="wizardBack3" class="btn" style="background: #64748b;">&larr; Back</button>
+            <button id="wizardSubmit" class="btn" style="background: #16a34a;">Submit Registration</button>
+        </div>
+
+        <!-- Summary -->
+        <div id="wizardSummary" style="display: none;">
+            <div id="wizardSummaryContent"></div>
+        </div>
+    </section>
+
+    <!-- Q5: IMAGE GALLERY WITH MODAL PREVIEW -->
+    <section class="card" id="q5-section">
+        <h2>5. Image Gallery with Modal Preview (stopPropagation)</h2>
+        <p>Click image for modal. Clicking outside closes modal; clicking inside uses <code>event.stopPropagation()</code>.</p>
+        <div id="imageGalleryGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px;"></div>
+    </section>
+
+    <!-- Modal Popup for Q5 -->
+    <div id="galleryModal" class="modal-backdrop">
+        <div id="modalContentContainer" class="modal-content-box">
+            <span id="modalCloseBtn" style="position: absolute; top: 12px; right: 16px; font-size: 24px; cursor: pointer; font-weight: bold;">&times;</span>
+            <img id="modalImage" src="" alt="Full Preview" style="width: 100%; height: auto; max-height: 380px; object-fit: cover; border-radius: 6px; margin-bottom: 12px;" />
+            <h3 id="modalImageTitle" style="margin: 0; color: #0f172a;"></h3>
+            <small style="color: #64748b;">Clicking anywhere on this white modal will NOT close it (stopPropagation).</small>
+        </div>
+    </div>
+
+    <!-- Q6: REAL-TIME TABLE FILTER -->
+    <section class="card" id="q6-section">
+        <h2>6. Real-Time Table Filter Using 'input' Event</h2>
+        <input type="text" id="studentSearchInput" placeholder="Type to filter students by Name, Branch, or CGPA..." style="margin-bottom: 14px;" />
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background: rgba(0,0,0,0.05); text-align: left;">
+                    <th style="padding: 10px;">#</th>
+                    <th style="padding: 10px;">Name</th>
+                    <th style="padding: 10px;">Branch</th>
+                    <th style="padding: 10px;">CGPA</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+        </table>
+    </section>
+
+    <!-- Q7: MOUSE COORDINATES LOGGER & RED DOT DROPPER -->
+    <section class="card" id="q7-section">
+        <h2>7. Detect Mouse Path & Coordinates Logger</h2>
+        <p>Move mouse inside 400&times;400 box. <strong>Double-click</strong> inside to drop a red dot marker.</p>
+        <div style="margin-bottom: 10px; font-weight: 600;">
+            Live Client Coordinates: (X: <span id="liveClientX">--</span>, Y: <span id="liveClientY">--</span>) |
+            Canvas Offset: (X: <span id="liveOffsetX">--</span>, Y: <span id="liveOffsetY">--</span>) |
+            Red Dots Dropped: <span id="dotsDroppedCount">0</span>
+        </div>
+        <div id="mouseTrackerBox" style="width: 400px; height: 400px; border: 2px solid var(--primary-color); position: relative; background: rgba(59, 130, 246, 0.04); border-radius: 8px; cursor: crosshair; overflow: hidden; margin: 0 auto;"></div>
+    </section>
+
+    <!-- Q8: CUSTOM DROPDOWN (CAPTURING PHASE) -->
+    <section class="card" id="q8-section">
+        <h2>8. Custom Dropdown Using Capturing Phase (No &lt;select&gt; Tag)</h2>
+        <p>Outside click detection attached via capturing phase: <code>document.addEventListener('click', handler, true)</code>.</p>
+        <div id="customDropdownContainer" style="position: relative; width: 280px;">
+            <button id="dropdownToggleBtn" class="btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: #fff; color: #1e293b; border: 1px solid var(--border-color);">
+                <span id="dropdownSelectedText">Choose Technology...</span>
+                <span>&#9662;</span>
+            </button>
+            <ul id="dropdownOptionsMenu" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; border: 1px solid var(--border-color); border-radius: 6px; list-style: none; margin: 4px 0 0; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 100; max-height: 200px; overflow-y: auto;"></ul>
+        </div>
+    </section>
+
+    <!-- Q9: FORM SUBMIT BLOCKER WITH PREVENTDEFAULT -->
+    <section class="card" id="q9-section">
+        <h2>9. Form Submit Blocker with preventDefault() & Live Errors</h2>
+        <p>Uses <code>preventDefault()</code> to stop submission when fields are invalid. Live correction clears errors automatically.</p>
+        <form id="submitBlockerForm" novalidate>
+            <div class="form-group">
+                <label for="blockerName">Name (Required):</label>
+                <input type="text" id="blockerName" placeholder="Enter full name" />
+                <div id="blockerNameError" class="error-msg"></div>
+            </div>
+            <div class="form-group">
+                <label for="blockerEmail">Email (Must contain @):</label>
+                <input type="email" id="blockerEmail" placeholder="Enter email" />
+                <div id="blockerEmailError" class="error-msg"></div>
+            </div>
+            <div class="form-group">
+                <label for="blockerPassword">Password (Min 6 chars):</label>
+                <input type="password" id="blockerPassword" placeholder="Enter password" />
+                <div id="blockerPasswordError" class="error-msg"></div>
+            </div>
+            <button type="submit" class="btn" style="background: #16a34a;">Submit</button>
+            <div id="blockerSuccessMessage" style="margin-top: 14px; display: none;"></div>
+        </form>
+    </section>
+</div>
+
+<!-- SCRIPTS FOR EACH QUESTION -->
+<script src="Q1_Dynamic_Product_List_Manager.js"></script>
+<script src="Q2_Live_Character_Counter.js"></script>
+<script src="Q3_Multi_Step_Form.js"></script>
+<script src="Q4_Theme_Switcher_Attributes.js"></script>
+<script src="Q5_Image_Gallery_Modal.js"></script>
+<script src="Q6_Real_Time_Table_Filter.js"></script>
+<script src="Q7_Mouse_Coordinates_Logger.js"></script>
+<script src="Q8_Custom_Dropdown_Capture.js"></script>
+<script src="Q9_Form_Submit_Blocker.js"></script>
+
+</body>
+</html>
